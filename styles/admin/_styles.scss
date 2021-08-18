@@ -1,0 +1,50 @@
+.admin {
+
+    box-sizing: border-box;
+    color: #000 !important;
+    background: #fff !important;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: sans-serif;
+    min-height: 100vh;
+    
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 64pt;
+        background: rgb(9, 59, 124);
+        color: #fff;
+
+        h1{
+            width: 100%;
+            text-align: center;
+            padding: 10pt 0;
+        }
+
+        nav {
+            ul {
+                list-style: none;
+                li {
+                    width: 100%;
+                    text-align: left;
+                    padding: 10pt 5pt;
+                    a {
+                        color: inherit;
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
+
+    main {
+        width: calc(100% - 64pt);
+        margin-left: 64pt;
+        padding: 10pt;
+    }
+    
+}
+    
