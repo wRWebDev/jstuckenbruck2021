@@ -1,4 +1,9 @@
+import { formatText } from '../../include/texttools'
+
 const Biography = ({ content }) => {
+
+    const paragraphs = content.body.split('\n\n')
+
     return (
         <>
             <section className="parallax bio">
@@ -11,13 +16,13 @@ const Biography = ({ content }) => {
                     data-aos-duration="1000"
                 >
                     <article className="desktop">
-                        { content.body }
+                        { paragraphs.map( (p,i) => <p key={i}>{formatText(p)}</p> ) }
                         <div className="social-media">
                             {/* { TODO: GET SOCIAL MEDIA ICONS } */}
                         </div>
                     </article>
                     <article className="mobile">
-                        {/* {map the first 2 paragraphs here} */}
+                        { paragraphs.slice(0,2).map( (p,i) => <p key={i}>{formatText(p)}</p> )}
                     </article>
                 </div>
             </section>

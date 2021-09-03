@@ -12,11 +12,15 @@
     "aos": "^2.3.4",
     "axios": "^0.21.1",
     "dotenv": "^10.0.0",
+    "nanoid": "^3.1.25",
     "next": "11.0.1",
     "node-sass": "^5.0.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "serverless-mysql": "^1.5.4"
+    "react-remove-scroll": "^2.4.3",
+    "react-string-replace": "^0.4.4",
+    "serverless-mysql": "^1.5.4",
+    "swiper": "^6.8.3"
   },
   "devDependencies": {
     "eslint": "7.30.0",

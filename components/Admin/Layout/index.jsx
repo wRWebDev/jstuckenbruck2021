@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Header from './Header'
 
-const Layout = ({ children }) => {
+const Layout = ({ auth, children }) => {
 
     return (
 
@@ -19,6 +19,8 @@ const Layout = ({ children }) => {
                 <Header />
                 <main>
                     { children }
+
+                    <h5>{auth.a}</h5>
                 </main>
             </div>
 
