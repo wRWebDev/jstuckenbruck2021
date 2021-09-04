@@ -3,7 +3,7 @@ const Footer = () => {
 
         <footer>
 
-        <div class="inner">
+        <div className="inner">
             
             <p>
                 <strong>Johann Stuckenbruck</strong><br/>

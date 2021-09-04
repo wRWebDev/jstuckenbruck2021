@@ -1,13 +1,12 @@
 import { useState, useEffect } from 'react'
-import SwiperCore, { Navigation, Thumbs, Keyboard, Zoom, Controller, Lazy, Autoplay } from 'swiper' 
+import SwiperCore, { Navigation, Keyboard, Controller, Lazy } from 'swiper' 
 import { Swiper, SwiperSlide } from 'swiper/react'
 import Image from 'next/image'
 import { nanoid } from 'nanoid'
-import { RemoveScroll } from 'react-remove-scroll';
 
-const ImageCarousel = ({ images, folder, closeOfferPane }) => {
+const ImageCarousel = ({ images, folder }) => {
     
-    SwiperCore.use([Navigation, Keyboard, Controller, Lazy, Autoplay]);
+    SwiperCore.use([Navigation, Keyboard, Controller, Lazy]);
 
     const [ mainSwiper, setMainSwiperTo ] = useState(null)
 
@@ -23,15 +22,6 @@ const ImageCarousel = ({ images, folder, closeOfferPane }) => {
                     onlyInViewport: true
                 }}
                 onSwiper={setMainSwiperTo}
-                navigation={{
-                    nextEl: '#mainSwiperNext',
-                    prevEl: '#mainSwiperBack',
-                }}
-                preloadImages={false}
-                lazy={true}
-                autoplay={{
-                    delay: 5000
-                }}
             >
                 {
                     images.map((image, i) => {return (
@@ -39,12 +29,14 @@ const ImageCarousel = ({ images, folder, closeOfferPane }) => {
                             key={nanoid()}
                         >
                             <div className="inner-container">
-                                <img 
-                                    data-src={`${process.env.AWS_BUCKET}${folder}/${image}`} 
-                                    className="swiper-lazy"
+                                <div className="swiper-lazy-preloader" />
+                                <Image  
+                                    src={`${process.env.AWS_BUCKET}${folder}/${image}`}
+                                    layout={'fill'}
+                                    objectFit={'contain'}
+                                    objectPosition={'center'}
                                 />
                             </div>
-                            <div className="swiper-lazy-preloader"></div>
                         </SwiperSlide>
                     )})
                 }

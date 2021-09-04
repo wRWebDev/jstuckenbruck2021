@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Image from 'next/image'
 
 const Contact = ({ content }) => {
 
@@ -44,7 +45,14 @@ const Contact = ({ content }) => {
                     <h2>Forbes</h2>
                     <p>International Artists Management</p>
                     <div id="forbes">
-                        <img src="" />
+                        <div className="image">
+                            <Image 
+                                src={`${process.env.AWS_BUCKET}scaled-images/forbes.png`}
+                                layout='fill'
+                                objectFit='contain'
+                                objectPosition='center'
+                            />
+                        </div>
                         <ul>
                             <li>
                                 <a 

@@ -566,14 +566,17 @@ body {
                 justify-content: space-between;
                 padding: 10pt 20pt;
                 margin-top: 20pt;
+                position: relative;
     
                 @media only screen and (max-width: 500px) {
                     flex-wrap: wrap;
                 }
     
-                img {
+                .image {
                     width: 100%;
-                    height: auto;
+                    min-height: 100pt;
+                    height: 100%;
+                    position: relative;
                 }
     
                 ul {
