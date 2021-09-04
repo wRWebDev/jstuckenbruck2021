@@ -6,7 +6,7 @@
     padding: 0;
     color: #fff;
     font-family: 'Roboto', sans-serif;
-    font-weight: lighter;
+    font-weight: 300;
 }
 
 @import 'variables';
@@ -26,7 +26,7 @@ body {
 }
 
 .home {
-    background-attachment: scroll;
+    background-attachment: initial;
     background-image: url('https://jstuckenbruck2021.s3.eu-west-2.amazonaws.com/scaled-images/home-image-2056.jpg');
     height: 100vh;
 
@@ -140,6 +140,7 @@ body {
             column-gap: 4rem;
             font-size: 1.1em;
             letter-spacing: 0.04em;
+            line-height: 1.4em;
 
             &.mobile { display: none; }
             &.desktop { display: block; }
@@ -152,14 +153,15 @@ body {
 
             p {
                 margin-bottom: 2em;
-                font-weight: 100;
+                font-weight: 300;
 
                 em {
+                    font-weight: 300;
                     font-style: italic;
                 }
 
                 strong {
-                    font-weight: 400;
+                    font-weight: 500;
                 }
             }
         }
@@ -207,7 +209,7 @@ body {
                     padding: 2pt 10pt;
                     text-align: center;
                     text-transform: uppercase;
-                    font-weight: 300;
+                    font-weight: 400;
 
                     @media only screen and (max-width: $MOBILE) {
                         padding: 2pt 0 2em;
@@ -215,6 +217,7 @@ body {
     
                     span {
                         font-size: 1.5em;
+                        font-weight: 400;
                     }
                 }
             }
@@ -252,6 +255,7 @@ body {
                 text-decoration: underline;
                 font-size: 1.1em;
                 letter-spacing: 0.01em;
+                font-weight: 300;
             }
 
             &::after {
@@ -335,6 +339,8 @@ body {
                     transform-origin: bottom right;
                     bottom: 18ch;
                     right: 5pt;
+                    font-weight: 300;
+                    letter-spacing: 0.2em;
                 }
 
             }
@@ -499,6 +505,7 @@ body {
             p {
                 font-size: 1em;
                 letter-spacing: 0.05em;
+                font-weight: 300;
             }
 
             &.forbes {
@@ -527,7 +534,7 @@ body {
                     outline: none;
                     font-size: 1.1em;
                     letter-spacing: 0.05em;
-                    font-weight: 200;
+                    font-weight: 300;
 
                     &::placeholder {
                         font-style: italic;
@@ -636,7 +643,7 @@ footer {
             }
             font-size: 1rem;
             letter-spacing: 0.08rem;
-            font-weight: 200;
+            font-weight: 300;
 
             a {
                 text-decoration: none;
