@@ -1,4 +1,5 @@
 import { formatText } from '../../include/texttools'
+import SocialMedia from '../SocialMedia'
 
 const Biography = ({ content }) => {
 
@@ -17,12 +18,11 @@ const Biography = ({ content }) => {
                 >
                     <article className="desktop">
                         { paragraphs.map( (p,i) => <p key={i}>{formatText(p)}</p> ) }
-                        <div className="social-media">
-                            {/* { TODO: GET SOCIAL MEDIA ICONS } */}
-                        </div>
+                        <SocialMedia />
                     </article>
                     <article className="mobile">
                         { paragraphs.slice(0,2).map( (p,i) => <p key={i}>{formatText(p)}</p> )}
+                        <SocialMedia />
                     </article>
                 </div>
             </section>

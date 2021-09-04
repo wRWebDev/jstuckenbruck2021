@@ -13,7 +13,7 @@ const LandingPage = ({ content, events }) => {
             <Biography content={content.biog} />
             <Schedule content={content.events} events={events} />
             <Media content={content.media} />
-            <Contact />
+            <Contact events={events} />
         </>
 
     )

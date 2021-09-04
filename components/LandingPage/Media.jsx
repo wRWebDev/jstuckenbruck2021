@@ -50,9 +50,9 @@ const Media = ({ content }) => {
                                 folder="scaled-images"
                                 videos={[
                                     {
-                                        id: "Cf8h5dbs_p0",
-                                        title: "Beethoven - Symphony No.5, Mvt II",
-                                        subtitle: "Covent Garden Chamber Orchestra"
+                                        id: "NTiKZhjDUIA",
+                                        title: "V.R. Alevizos : Concerto for Piano and Symphony Orchestra",
+                                        subtitle: "Royal Academy of Music Symphony Orchestra"
                                     },
                                     {
                                         id: "Cf8h5dbs_p0",

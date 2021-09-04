@@ -3,8 +3,9 @@
     width: 2rem;
     height: 170px;
     bottom: 20px;
-    right: $leftOrRight;
+    right: calc(#{$leftOrRight} / 2);
     padding-top: 5px;
+    // background: red;
 
     .scrollWrapperInner {
         position: relative;

@@ -1,0 +1,70 @@
+.socialMedia {
+    width: 100%;
+    margin-top: 10pt;
+    height: 36px;
+    position: relative;
+
+    &.left-align {
+        ul {
+            justify-content: center;
+        }
+    }
+    
+    &.center-align {
+        ul {
+            justify-content: flex-start;
+        }
+    }
+
+        ul {
+            list-style: none;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            // justify-content: center;
+            height: 36px;
+
+            @media only screen and (max-width: $MOBILE){
+                align-items: center;
+                justify-content: center;
+            }
+
+            li {
+                // Resize svgs to 36x36px
+                .menu-socmed-icon {
+                    width: 36px;
+                    height: 36px;
+                    margin: 0 15px;
+                    cursor: pointer;
+
+                    @media only screen and (max-width: $MOBILE){
+                        margin: 0 15px;
+                    }
+
+                    // On hover edit fill color covered in 
+                    // /styles/scss/_rules.scss
+                    // This is so that it applies to the contact page also
+                }
+            }
+        }
+    }
+
+svg:hover,
+svg:focus{
+    .facebook {
+        fill: #2a6fc9;
+    }
+    .instagram {
+        fill: #ca2d8c;
+    }
+    .instagram_lens {
+        fill: #8d1ea3;
+    }
+    .twitter {
+        fill: #2c88ff;
+    }
+    .youtube {
+        fill: #c61a1a;
+    }
+}
