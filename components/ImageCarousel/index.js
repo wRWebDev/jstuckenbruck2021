@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import SwiperCore, { Navigation, Thumbs, Keyboard, Zoom, Controller, Lazy } from 'swiper' 
+import SwiperCore, { Navigation, Thumbs, Keyboard, Zoom, Controller, Lazy, Autoplay } from 'swiper' 
 import { Swiper, SwiperSlide } from 'swiper/react'
 import Image from 'next/image'
 import { nanoid } from 'nanoid'
@@ -7,12 +7,9 @@ import { RemoveScroll } from 'react-remove-scroll';
 
 const ImageCarousel = ({ images, folder, closeOfferPane }) => {
     
-    SwiperCore.use([Navigation, Keyboard, Controller, Lazy]);
+    SwiperCore.use([Navigation, Keyboard, Controller, Lazy, Autoplay]);
 
     const [ mainSwiper, setMainSwiperTo ] = useState(null)
-    const [ fullScreenSwiper, setFullScreenSwiperTo ] = useState(null)
-    const [ showingFullscreen, setShowingFullscreenTo ] = useState(false)
-    const [ showingZoomMessage, setShowingZoomMessageTo ] = useState(false)
 
     return (
         <>
@@ -26,10 +23,14 @@ const ImageCarousel = ({ images, folder, closeOfferPane }) => {
                     onlyInViewport: true
                 }}
                 onSwiper={setMainSwiperTo}
-                style={{cursor:'zoom-in'}}
                 navigation={{
                     nextEl: '#mainSwiperNext',
                     prevEl: '#mainSwiperBack',
+                }}
+                preloadImages={false}
+                lazy={true}
+                autoplay={{
+                    delay: 5000
                 }}
             >
                 {
@@ -37,9 +38,13 @@ const ImageCarousel = ({ images, folder, closeOfferPane }) => {
                         <SwiperSlide
                             key={nanoid()}
                         >
+                            <div className="inner-container">
                                 <img 
-                                    src={`${process.env.AWS_BUCKET}${folder}/${image}`} 
+                                    data-src={`${process.env.AWS_BUCKET}${folder}/${image}`} 
+                                    className="swiper-lazy"
                                 />
+                            </div>
+                            <div className="swiper-lazy-preloader"></div>
                         </SwiperSlide>
                     )})
                 }

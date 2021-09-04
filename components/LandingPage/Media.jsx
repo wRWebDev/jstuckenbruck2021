@@ -1,12 +1,7 @@
 import ImageCarousel from '../ImageCarousel'
+import VideoCarousel from '../VideoCarousel'
 
 const Media = ({ content }) => {
-
-
-    console.log({
-        pageName: 'media',
-        content
-    })
 
     return (
         <>
@@ -24,18 +19,18 @@ const Media = ({ content }) => {
                             <ImageCarousel 
                                 folder="scaled-images"
                                 images={[
-                                    'about-image-1024.jpg',
-                                    'home-image-1024.jpg',
+                                    'swiper-image-6.jpg',
                                     'schedule-image-1024.jpg',
                                     'media-image-1024.jpg',
                                     'swiper-image-1.jpg',
                                     'swiper-image-2.jpg',
+                                    'swiper-image-8.jpg',
+                                    'swiper-image-5.jpg',
+                                    'about-image-1024.jpg',
                                     'swiper-image-3.jpg',
                                     'swiper-image-4.jpg',
-                                    'swiper-image-5.jpg',
-                                    'swiper-image-6.jpg',
-                                    'swiper-image-7.jpg',
-                                    'swiper-image-8.jpg',
+                                    'home-image-1024.jpg',
+                                    'swiper-image-7.jpg'
                                 ]}
                             />
                         </div>
@@ -51,10 +46,19 @@ const Media = ({ content }) => {
                     <div className="carousel">
                         <div className="inner videos">
 
-                            <ImageCarousel
+                            <VideoCarousel
                                 folder="scaled-images"
-                                images={[
-                                    'about-image-1024.jpg'
+                                videos={[
+                                    {
+                                        id: "Cf8h5dbs_p0",
+                                        title: "Beethoven - Symphony No.5, Mvt II",
+                                        subtitle: "Covent Garden Chamber Orchestra"
+                                    },
+                                    {
+                                        id: "Cf8h5dbs_p0",
+                                        title: "Beethoven - Symphony No.5, Mvt II",
+                                        subtitle: "Covent Garden Chamber Orchestra"
+                                    }
                                 ]}
                             />
 

@@ -2,8 +2,6 @@ import Event from '../Event'
 
 const Schedule = ({ content, events }) => {
 
-    console.log('content: ', content)
-
     return (
         <>
             <section className="parallax events">

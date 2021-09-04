@@ -34,10 +34,10 @@ export default function Home({ content, events }) {
 
 export async function getServerSideProps( ctx ){
 
-  const contentRes = await fetch('http://localhost:1337/api/v1/content')
+  const contentRes = await fetch(`${process.env.API}content`)
   const contentData = await contentRes.json()
 
-  const eventsRes = await fetch('http://localhost:1337/api/v1/events')
+  const eventsRes = await fetch(`${process.env.API}events`)
   const eventsData = await eventsRes.json()
 
   return {

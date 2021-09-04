@@ -10,7 +10,7 @@ const Event = ({ data }) => {
                     <header>{institution}</header>
                     <time>
                         {date.month}<br/>
-                        <span>{date.date}</span>
+                        <span>{date.date.toString().padStart(2, '0')}</span>
                     </time>
                 </div>
 
