@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import { nanoid } from 'nanoid'
 
 
-const SocialMedia = () => {
+const SocialMedia = ({ align }) => {
 
     /* On pageload, paint SVGs */
     useEffect(()=>{
@@ -13,7 +13,7 @@ const SocialMedia = () => {
     }, [])
 
     return (
-        <div className="socialMedia">
+        <div className={`socialMedia align-${align}`}>
             <ul>
                 {
                     socialMediaLinks.map( sm => (

@@ -26,12 +26,9 @@ body {
 }
 
 .home {
-    background-image: url('https://jstuckenbruck2021.s3.eu-west-2.amazonaws.com/scaled-images/home-image-1024.jpg');
-    @media only screen and (min-width: 1000px) {
-        background-image: url('https://jstuckenbruck2021.s3.eu-west-2.amazonaws.com/scaled-images/home-image-2056.jpg');
-    }
-
-    min-height: 100vh;
+    background-attachment: scroll;
+    background-image: url('https://jstuckenbruck2021.s3.eu-west-2.amazonaws.com/scaled-images/home-image-2056.jpg');
+    height: 100vh;
 
     @import 'scrollAnimation';
     
@@ -64,36 +61,36 @@ body {
 }
 
 .parallax {
-
+    position: relative;
     width: 100%;
-    background-size: cover;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-position: top 75%;
     
+
     &.bio { 
-        background-image: url('https://jstuckenbruck2021.s3.eu-west-2.amazonaws.com/scaled-images/about-image-1024.jpg');
-        @media only screen and (min-width: 1000px) {
-            background-image: url('https://jstuckenbruck2021.s3.eu-west-2.amazonaws.com/scaled-images/about-image-2056.jpg');
-        }
+        background-image: url('https://jstuckenbruck2021.s3.eu-west-2.amazonaws.com/scaled-images/about-image-2056.jpg');
+        // background: blue;
     }
     &.events { 
-        background-image: url('https://jstuckenbruck2021.s3.eu-west-2.amazonaws.com/scaled-images/schedule-image-1024.jpg');
-        @media only screen and (min-width: 1000px) {
-            background-image: url('https://jstuckenbruck2021.s3.eu-west-2.amazonaws.com/scaled-images/schedule-image-2056.jpg');
-        }
+        background-image: url('https://jstuckenbruck2021.s3.eu-west-2.amazonaws.com/scaled-images/schedule-image-2056.jpg');
+        // background: red;
     } 
     &.media { 
-        background-image: url('https://jstuckenbruck2021.s3.eu-west-2.amazonaws.com/scaled-images/media-image-1024.jpg');
-        @media only screen and (min-width: 1000px) {
-            background-image: url('https://jstuckenbruck2021.s3.eu-west-2.amazonaws.com/scaled-images/media-image-2056.jpg');
-        }
+        background-image: url('https://jstuckenbruck2021.s3.eu-west-2.amazonaws.com/scaled-images/media-image-2056.jpg');
+        // background: green;
     } 
+
+    @supports (-webkit-overflow-scrolling: touch) {
+        background-image: none !important;
+        background: $dark;
+    }
 
     .parallax-title {
 
         height: 100vh;
         position: relative;
+
+        @supports (-webkit-overflow-scrolling: touch) {
+            height: 50vh;
+        }
 
         h1 {
             font-size: 4em;
@@ -119,6 +116,10 @@ body {
             background: rgba(0,0,0,0.8);
             margin-top: 50vh;
             padding: 10vh 0;
+
+            @supports (-webkit-overflow-scrolling: touch) {
+                margin-top: 10vh;
+            }
         }
 
         &.bio,
@@ -280,7 +281,7 @@ body {
                     border-right: 2pt solid #fff;
                     border-top: 2pt solid #fff;
 
-                    @media only screen and (max-width: $MOBILE) {
+                    @media only screen and (max-width: $MEDIABREAK) {
                         width: 120pt;
                     } 
 
@@ -298,7 +299,7 @@ body {
                     left: calc(#{$leftOrRight} + 180pt);
                     border-right: 2pt solid #fff;
                     border-top: 2pt solid #fff;
-                    @media only screen and (max-width: $MOBILE){
+                    @media only screen and (max-width: $MEDIABREAK){
                         width: 0;
                         left: 90vw;
                         border-top: none;
@@ -315,7 +316,7 @@ body {
                         z-index: 2;
                         border-right: 2pt solid #fff;
 
-                        @media only screen and (max-width: $MOBILE) {
+                        @media only screen and (max-width: $MEDIABREAK) {
                             height: 30pt;
                         }
                     }
@@ -402,7 +403,7 @@ body {
                         margin-left: 40vw;
                     }
     
-                    @media only screen and (max-width: $MOBILE) {
+                    @media only screen and (max-width: $MEDIABREAK) {
                         width: 100vw;
                         height: calc(500vw / 7);
                         margin-left: 0 !important;
@@ -416,7 +417,7 @@ body {
                     // background: red;
                     height: 30pt;
 
-                    @media only screen and (max-width: $MOBILE) {
+                    @media only screen and (max-width: $MEDIABREAK) {
                         width: 80vw;
                         left: 10vw;
                         padding: 0 1em;

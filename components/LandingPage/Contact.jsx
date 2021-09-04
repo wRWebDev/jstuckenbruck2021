@@ -105,7 +105,7 @@ const Contact = ({ events }) => {
                             Send
                         </button>
                     </form>
-                    <SocialMedia />
+                    <SocialMedia align="left" />
                 </div>
                 <div className="subsection forbes">
                     <h2>Forbes</h2>

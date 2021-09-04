@@ -4,15 +4,21 @@
     height: 36px;
     position: relative;
 
-    &.left-align {
+    &.algin-left {
         ul {
-            justify-content: center;
+            justify-content: flex-start !important;
+            li {
+                margin: 0 30px 0 0 !important;
+            }
         }
     }
     
-    &.center-align {
+    &.align-center {
         ul {
-            justify-content: flex-start;
+            justify-content: center !important;
+            li {
+                margin: 0 15px !important;
+            }
         }
     }
 
@@ -26,8 +32,7 @@
             height: 36px;
 
             @media only screen and (max-width: $MOBILE){
-                align-items: center;
-                justify-content: center;
+                justify-content: center !important;
             }
 
             li {

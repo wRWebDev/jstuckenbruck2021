@@ -8,6 +8,7 @@ const Biography = ({ content }) => {
     return (
         <>
             <section className="parallax bio">
+
                 <div className="parallax-title">
                     <h1 data-aos="fade-up">{ content.title }</h1>
                 </div>
@@ -18,11 +19,11 @@ const Biography = ({ content }) => {
                 >
                     <article className="desktop">
                         { paragraphs.map( (p,i) => <p key={i}>{formatText(p)}</p> ) }
-                        <SocialMedia />
+                        <SocialMedia align="center" />
                     </article>
                     <article className="mobile">
-                        { paragraphs.slice(0,2).map( (p,i) => <p key={i}>{formatText(p)}</p> )}
-                        <SocialMedia />
+                        { paragraphs.slice(0,3).map( (p,i) => <p key={i}>{formatText(p)}</p> )}
+                        <SocialMedia align="center" />
                     </article>
                 </div>
             </section>
