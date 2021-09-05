@@ -2,6 +2,8 @@ import SocialMedia from '../SocialMedia'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
+import * as Scroll from 'react-scroll'
+let ScrollElement = Scroll.Link
 
 const emailFormat = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
@@ -47,7 +49,12 @@ const Contact = ({ events }) => {
         /* Stop reload, change sending state, sort vars into obj */
         e.preventDefault()
         setSendingTo(true)
-        const details = {name, email, message, events}
+        const details = {
+            name, 
+            email, 
+            message, 
+            events
+        }
         /* Send details to api endpoint if form details are valid */
         if(validateForm(details)){
             setUserFeedbackTo('Sending your message to Johann...')
@@ -73,8 +80,8 @@ const Contact = ({ events }) => {
     
     return (
         <section className="contact">
-
-            <h1>Contact</h1>
+            <ScrollElement name="contact" />
+            <h1 data-aos="fade-up">Contact</h1>
             <div className="contact-inner">
                 <div className="subsection">
                     <p>Write to Johann:</p>
@@ -117,6 +124,7 @@ const Contact = ({ events }) => {
                                 layout='fill'
                                 objectFit='contain'
                                 objectPosition='center'
+                                priority={true}
                             />
                         </div>
                         <ul>

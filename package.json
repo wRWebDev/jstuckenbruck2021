@@ -19,6 +19,7 @@
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-remove-scroll": "^2.4.3",
+    "react-scroll": "^1.8.4",
     "react-string-replace": "^0.4.4",
     "serverless-mysql": "^1.5.4",
     "swiper": "^6.8.3"

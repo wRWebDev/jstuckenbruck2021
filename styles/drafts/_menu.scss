@@ -1,0 +1,116 @@
+html.frozen {
+    overflow-y: hidden !important;
+}
+
+#menu {
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    padding: $topOrBottom $leftOrRight;
+    background: rgba(22, 27, 29, 0.9);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    
+    transition: opacity 300ms ease-in-out;
+    z-index: -100;
+    opacity: 0;
+
+    &.active {
+        z-index: 100;
+        opacity: 1;
+    }
+
+    ul {
+        list-style: none;
+
+        li {
+            position: relative;
+            font-weight: 300;
+            font-size: 3rem;
+            text-align: right;
+            padding: 20pt 0;
+            cursor: pointer;
+            width: auto;
+
+            span {
+                width: auto;
+                position: relative;
+
+                &::after{
+                    content: '';
+                    position: absolute;
+                    bottom: -5pt;
+                    right: 0;
+                    width: 0;
+                    height: 2px;
+                    background: #fff;
+                    transition: width ease-in-out 200ms;
+                }
+    
+                &:focus,
+                &:active,
+                &:hover {
+                    &::after{
+                        width: 100%;
+                    }
+                }
+            }
+
+        }
+    }
+
+    .socialMedia {
+        position: absolute;
+        bottom: $topOrBottom;
+        right: $leftOrRight;
+    }
+
+}
+
+#menu-button {
+
+    position: absolute;
+    top: $topOrBottom;
+    right: $leftOrRight;
+    width: 25pt;
+    height: 30pt;
+    z-index: 200;
+    cursor: pointer;
+    // display: flex;
+    // flex-direction: column;
+    // align-items: center;
+    // justify-content: center;
+
+    .hamburger {
+
+        display: block;
+        height: 3pt;
+        width: 100%;
+        background: #fff;
+        margin: 4pt 0;
+
+        transition: all ease 50ms;
+    }
+    
+
+    &.menu-open {
+
+
+        .hamburger {
+            &:nth-child(1) {
+                transform-origin: 50% -2pt;
+                transform: rotate(45deg) translate(0, 5pt);
+            }
+            &:nth-child(2) {
+                transform-origin: 50% 2pt;
+                transform: rotate(-45deg) translate(0pt, -8pt);
+            }
+        }
+        
+    }
+}

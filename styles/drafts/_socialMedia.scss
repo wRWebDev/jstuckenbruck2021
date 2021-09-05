@@ -15,6 +15,17 @@
         }
     }
     
+    &.align-right {
+        ul {
+            justify-content: flex-end;
+            li {
+                .menu-socmed-icon{
+                    margin: 0 0 0 30px;
+                }
+            }
+        }
+    }
+    
     &.align-center {
         ul {
             justify-content: center;

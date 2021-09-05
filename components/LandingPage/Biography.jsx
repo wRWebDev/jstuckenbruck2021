@@ -1,5 +1,8 @@
 import { formatText } from '../../include/texttools'
 import SocialMedia from '../SocialMedia'
+import { nanoid } from 'nanoid'
+import * as Scroll from 'react-scroll'
+let ScrollElement = Scroll.Link
 
 const Biography = ({ content }) => {
 
@@ -9,6 +12,7 @@ const Biography = ({ content }) => {
         <>
             <section className="parallax bio">
 
+
                 <div className="parallax-title">
                     <h1 data-aos="fade-up">{ content.title }</h1>
                 </div>
@@ -17,14 +21,22 @@ const Biography = ({ content }) => {
                     data-aos="fade-in" 
                     data-aos-duration="1000"
                 >
-                    <article className="desktop">
-                        { paragraphs.map( (p,i) => <p key={i}>{formatText(p)}</p> ) }
+                    <ScrollElement name="biography" />
+                    <article className="desktop" id="biography-text">
+                        
+                        { paragraphs.map( p => <p key={nanoid()}>{formatText(p)}</p> ) }
+                        
+                        <ScrollElement to="contact" spy={true} smooth={true} offset={-50} duration={1000} delay={100}>
+                            <div 
+                                className="skiptocontact"
+                            >
+                                Contact Johann
+                            </div>
+                        </ScrollElement>
+                        
                         <SocialMedia align="center" />
                     </article>
-                    <article className="mobile">
-                        { paragraphs.slice(0,3).map( (p,i) => <p key={i}>{formatText(p)}</p> )}
-                        <SocialMedia align="center" />
-                    </article>
+                    
                 </div>
             </section>
         </>

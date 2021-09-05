@@ -9,15 +9,16 @@ const socialMediaLinks = [
         icon: socialMediaIcons.facebook
     },
     {
-        name: 'Twitter',
-        link: 'https://twitter.com/jstuckenbruck',
-        icon: socialMediaIcons.twitter
-    },
-    {
         name: 'Instagram',
         link: 'https://instagram.com/jstuckenbruck',
         icon: socialMediaIcons.instagram
+    },
+    {
+        name: 'Twitter',
+        link: 'https://twitter.com/jstuckenbruck',
+        icon: socialMediaIcons.twitter
     }
+    
 ]
 
 export { socialMediaLinks }

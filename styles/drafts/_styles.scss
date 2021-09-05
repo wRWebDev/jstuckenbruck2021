@@ -11,6 +11,8 @@
 
 @import 'variables';
 
+@import 'menu';
+
 html,
 body {
     overflow-x: hidden;
@@ -141,13 +143,9 @@ body {
             font-size: 1.1em;
             letter-spacing: 0.04em;
             line-height: 1.4em;
+            position: relative;
 
-            &.mobile { display: none; }
-            &.desktop { display: block; }
-
-            @media only screen and (max-width: $MOBILE) {
-                &.mobile { display: block; }
-                &.desktop { display: none; }
+            @media only screen and (max-width: $MEDIABREAK) {
                 columns: 1;
             }
 
@@ -163,6 +161,15 @@ body {
                 strong {
                     font-weight: 500;
                 }
+            }
+
+            .skiptocontact {
+                padding: 5pt 0;
+                width: 50%;
+                margin: 0 auto 15pt auto;
+                border-bottom: 2px solid #fff;
+                text-align: center;
+                cursor: pointer;
             }
         }
 
@@ -351,7 +358,7 @@ body {
                 .inner {
                     position: relative;
                     width: 50%;
-                    height: calc(500vw / 14);
+                    height: calc(200vw / 6);
                     background: $dark;
                     overflow: hidden;
                     
@@ -411,7 +418,7 @@ body {
     
                     @media only screen and (max-width: $MEDIABREAK) {
                         width: 100vw;
-                        height: calc(500vw / 7);
+                        height: calc(200vw / 3);
                         margin-left: 0 !important;
                     }
                 }

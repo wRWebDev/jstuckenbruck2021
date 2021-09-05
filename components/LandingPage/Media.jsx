@@ -1,5 +1,7 @@
 import ImageCarousel from '../ImageCarousel'
 import VideoCarousel from '../VideoCarousel'
+import * as Scroll from 'react-scroll'
+let ScrollElement = Scroll.Link
 
 const Media = ({ content }) => {
 
@@ -14,6 +16,8 @@ const Media = ({ content }) => {
 
                     <div className="pre-gallery gallery"></div>
                     
+                    <ScrollElement name="media" />
+
                     <div className="carousel">
                         <div className="inner gallery">
                             <ImageCarousel 

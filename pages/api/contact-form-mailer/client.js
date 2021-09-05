@@ -27,7 +27,25 @@ export default async function(req, res){
     // deconstruct request body
     const { name, email, events } = req.body
 
-    console.log(events)
+    // console.log(events)
+
+    let parsedEvents = []
+    
+    const parseEvents = n => {
+        parsedEvents.push({
+            link: events[n].url,
+            institution: events[n].institution,
+            date: `${events[n].date.date.toString().padStart(2, '0')} ${events[n].date.month}`,
+            location: events[n].venue
+        })
+    }
+
+    if(events.length){
+        parseEvents(0)
+        if(events.length > 1) {
+            parseEvents(1)
+        }
+    }
 
     // format data to send to sendgrid api
     const emailData = {
@@ -41,7 +59,9 @@ export default async function(req, res){
                 name: name
             }],
             dynamic_template_data: {
-                senderName: name
+                senderName: name,
+                event1: parsedEvents.length ? parsedEvents[0] : {},
+                event2: parsedEvents.length === 2 ? parsedEvents[1] : {}
             }
         }],
         template_id: process.env.SENDGRID_EMAIL_MESSAGER

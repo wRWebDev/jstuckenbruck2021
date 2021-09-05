@@ -1,6 +1,10 @@
 import Event from '../Event'
+import * as Scroll from 'react-scroll'
+let ScrollElement = Scroll.Link
 
 const Schedule = ({ content, events }) => {
+
+    // console.log(events)
 
     return (
         <>
@@ -14,6 +18,8 @@ const Schedule = ({ content, events }) => {
                     data-aos-mirror="true" 
                     data-aos-duration="1000"   
                 >
+
+                    <ScrollElement name="schedule" />
 
                     { events.map((e, i) => <Event key={i} data={e} /> ) }
 
