@@ -13,7 +13,7 @@ export default function Home({ content, events }) {
   
   const aboutMe = {
     title: 'Johann Stuckenbruck - Conductor',
-    descrition: 'Welocme to the website of international conductor, Johann Stuckenbruck',
+    description: 'Welocme to the website of international conductor, Johann Stuckenbruck',
     keywords: [
       'conductor',
       'musician'
