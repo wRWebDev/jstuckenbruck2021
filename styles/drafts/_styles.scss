@@ -361,8 +361,49 @@ body {
                     width: 50%;
                     height: calc(200vw / 6);
                     background: $dark;
-                    overflow: hidden;
+                    // overflow: hidden;
+
+                    .swiper-navigation {
+
+                        position: absolute;
+                        width: 20pt;
+                        height: 20pt;
+                        top: 50%;
+                        z-index: 10;
+                        transform: translateY(-50%) rotate(45deg);
+                        transition: all 150ms ease;
+                        cursor: pointer;
+
+                        &:hover,
+                        &:focus {
+                            border-color: #aaa !important;
+                        }
+
+                        @media only screen and (max-width: $MEDIABREAK) {
+                            display: none;
+                        }
+
+                        &.swiper-navigation-next {
+    
+                            left: calc(100% + 5pt);
+                            border-top: 2px solid #fff;
+                            border-right: 2px solid #fff;
+                            
+                        }
+                        
+                        &.swiper-navigation-back {
+                            
+                            right: calc(100% + 5pt);
+                            border-bottom: 2px solid #fff;
+                            border-left: 2px solid #fff;
+    
+                        }
+
+                    }
                     
+
+                    
+
                     .inner-container {
                         
                         position: relative;

@@ -21,6 +21,10 @@ const ImageCarousel = ({ images, folder }) => {
                     enabled: true,
                     onlyInViewport: true
                 }}
+                navigation={{
+                    nextEl: '#gallerySwiperNext',
+                    prevEl: '#gallerySwiperBack',
+                }}
                 onSwiper={setMainSwiperTo}
             >
                 {
@@ -41,6 +45,8 @@ const ImageCarousel = ({ images, folder }) => {
                     )})
                 }
             </Swiper>
+            <div id="gallerySwiperNext" className="swiper-navigation swiper-navigation-next" />
+            <div id="gallerySwiperBack" className="swiper-navigation swiper-navigation-back" />
         </>
     )
 

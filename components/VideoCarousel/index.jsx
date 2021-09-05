@@ -17,6 +17,10 @@ const ImageCarousel = ({ videos }) => {
                     enabled: true,
                     onlyInViewport: true
                 }}
+                navigation={{
+                    nextEl: '#videosSwiperNext',
+                    prevEl: '#videosSwiperBack',
+                }}
             >
                 {
                     videos.map(( video ) => {return (
@@ -39,6 +43,9 @@ const ImageCarousel = ({ videos }) => {
                     )})
                 }
             </Swiper>
+
+            <div id="videosSwiperNext" className="swiper-navigation swiper-navigation-next" />
+            <div id="videosSwiperBack" className="swiper-navigation swiper-navigation-back" />
         </>
     )
 
