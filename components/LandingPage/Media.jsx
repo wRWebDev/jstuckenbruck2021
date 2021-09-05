@@ -40,7 +40,13 @@ const Media = ({ content }) => {
                         </div>
                         <div className="copyright">
                             <span>
-                                &copy; Radek Dranikowski
+                                <a 
+                                    href="https://www.radekdranikowski.co.uk/"
+                                    rel="noopener noreferrer"
+                                    target="_blank"
+                                >
+                                    &copy; Radek Dranikowski
+                                </a>
                             </span>
                         </div>
                     </div>

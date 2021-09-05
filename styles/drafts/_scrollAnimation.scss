@@ -3,7 +3,7 @@
     width: 2rem;
     height: 170px;
     bottom: $topOrBottom;
-    right: calc(#{$leftOrRight} / 2);
+    right: calc(#{$leftOrRight} - 2rem);
     padding-top: 5px;
     // background: red;
 

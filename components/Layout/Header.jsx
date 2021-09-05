@@ -56,7 +56,7 @@ const Header = () => {
                             </ScrollLink>
                         </li>
                         <li>
-                            <ScrollLink to="schedule" spy={true} smooth={true} offset={-150} duration={1400} delay={100}>
+                            <ScrollLink to="schedule" spy={true} smooth={true} offset={-190} duration={1400} delay={100}>
                                 <span>
                                     Schedule
                                 </span>

@@ -46,9 +46,9 @@
             // justify-content: center;
             height: 36px;
 
-            @media only screen and (max-width: $MOBILE){
-                justify-content: center !important;
-            }
+            // @media only screen and (max-width: $MOBILE){
+            //     justify-content: center !important;
+            // }
 
             li {
                 // Resize svgs to 36x36px
@@ -58,9 +58,9 @@
                     // margin: 0 15px;
                     cursor: pointer;
 
-                    @media only screen and (max-width: $MOBILE){
-                        margin: 0 15px;
-                    }
+                    // @media only screen and (max-width: $MOBILE){
+                    //     margin: 0 15px;
+                    // }
 
                     // On hover edit fill color covered in 
                     // /styles/scss/_rules.scss

@@ -37,6 +37,11 @@ html.frozen {
             cursor: pointer;
             width: auto;
 
+            @media only screen and (max-width: $MOBILE) {
+                padding: 10pt 0;
+                font-size: 2.6rem;
+            }
+
             span {
                 width: auto;
                 position: relative;
