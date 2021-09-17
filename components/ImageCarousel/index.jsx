@@ -8,8 +8,6 @@ const ImageCarousel = ({ images, folder }) => {
     
     SwiperCore.use([Navigation, Keyboard, Controller, Lazy]);
 
-    const [ mainSwiper, setMainSwiperTo ] = useState(null)
-
     return (
         <>
             {/* Main Swiper */}
@@ -25,7 +23,6 @@ const ImageCarousel = ({ images, folder }) => {
                     nextEl: '#gallerySwiperNext',
                     prevEl: '#gallerySwiperBack',
                 }}
-                onSwiper={setMainSwiperTo}
             >
                 {
                     images.map((image, i) => {return (

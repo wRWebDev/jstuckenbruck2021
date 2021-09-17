@@ -1,6 +1,5 @@
 import { formatText } from '../../include/texttools'
 import SocialMedia from '../SocialMedia'
-import { nanoid } from 'nanoid'
 import * as Scroll from 'react-scroll'
 let ScrollElement = Scroll.Link
 
@@ -24,7 +23,7 @@ const Biography = ({ content }) => {
                     <ScrollElement name="biography" />
                     <article className="desktop" id="biography-text">
                         
-                        { paragraphs.map( p => <p key={nanoid()}>{formatText(p)}</p> ) }
+                        { paragraphs.map( ( p, i ) => <p key={ i }>{ formatText(p) }</p> ) }
                         
                         <ScrollElement to="contact" spy={true} smooth={true} offset={-50} duration={1000} delay={100}>
                             <div 

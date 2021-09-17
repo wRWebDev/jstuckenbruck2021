@@ -1,0 +1,53 @@
+// .home,
+// .parallax {
+//     background-size: cover;
+//     background-attachment: fixed;
+//     background-repeat: no-repeat;
+//     background-position: top center;
+// }
+
+// .home {
+
+//     background-attachment: initial;
+//     background-image: url('https://jstuckenbruck2021.s3.eu-west-2.amazonaws.com/scaled-images/home-image-2056.jpg');
+
+// }
+
+.parallax {
+
+    &.bio { 
+        // background-image: url('https://jstuckenbruck2021.s3.eu-west-2.amazonaws.com/scaled-images/about-image-2056.jpg');
+        // background: blue;
+        // background: $dark;
+    }
+    &.events { 
+        // background-image: url('https://jstuckenbruck2021.s3.eu-west-2.amazonaws.com/scaled-images/schedule-image-2056.jpg');
+        // background: red;
+    } 
+    &.media { 
+        // background-image: url('https://jstuckenbruck2021.s3.eu-west-2.amazonaws.com/scaled-images/media-image-2056.jpg');
+        // background: green;
+    } 
+
+    // @supports (-webkit-overflow-scrolling: touch) {
+    //     background-image: none !important;
+    //     background: $dark;
+    // }
+}
+
+#static_bg {
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -2;
+
+    background-image: url('https://jstuckenbruck2021.s3.eu-west-2.amazonaws.com/scaled-images/home-image-2056.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: top center;
+
+}

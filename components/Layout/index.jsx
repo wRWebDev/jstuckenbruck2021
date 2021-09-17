@@ -25,6 +25,8 @@ const Layout = ({ properties, children }) => {
 
             <Header />
 
+            <div id="static_bg" />
+
             <main>
                 { children }
             </main>
