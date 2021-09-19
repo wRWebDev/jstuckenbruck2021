@@ -8,7 +8,7 @@ const Schedule = ({ content, events }) => {
 
     return (
         <>
-            <section className="parallax events">
+            <section className="parallax events" id="section_schedule">
                 <div className="parallax-title">
                     <h1 data-aos="fade-up"> { content.title } </h1>
                 </div>

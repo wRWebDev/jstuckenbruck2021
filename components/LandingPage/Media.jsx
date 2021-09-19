@@ -7,7 +7,7 @@ const Media = ({ content }) => {
 
     return (
         <>
-            <section className="parallax media">
+            <section className="parallax media" id="section_media">
                 
                 <div className="parallax-title">
                     <h1 data-aos="fade-up">{ content.title }</h1>

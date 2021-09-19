@@ -59,8 +59,8 @@ body {
     width: 100%;
 
     @supports (-webkit-overflow-scrolling: touch) {
-        background-image: none !important;
-        background: $dark;
+        // background-image: none !important;
+        // background: $dark;
     }
 
     .parallax-title {
@@ -69,7 +69,7 @@ body {
         position: relative;
 
         @supports (-webkit-overflow-scrolling: touch) {
-            height: 50vh;
+            // height: 50vh;
         }
 
         h1 {
@@ -82,7 +82,7 @@ body {
             font-weight: 300;
 
             @media only screen and (max-width: $MOBILE) { 
-                font-size: 2.8em;
+                // font-size: 2.8em;
             }
         }
 
@@ -98,7 +98,7 @@ body {
             padding: 10vh 0;
 
             @supports (-webkit-overflow-scrolling: touch) {
-                margin-top: 10vh;
+                // margin-top: 10vh;
             }
         }
 

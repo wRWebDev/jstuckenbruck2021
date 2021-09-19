@@ -9,7 +9,7 @@ const Biography = ({ content }) => {
 
     return (
         <>
-            <section className="parallax bio">
+            <section className="parallax bio" id="section_biog">
 
 
                 <div className="parallax-title">
@@ -23,7 +23,11 @@ const Biography = ({ content }) => {
                     <ScrollElement name="biography" />
                     <article className="desktop" id="biography-text">
                         
-                        { paragraphs.map( ( p, i ) => <p key={ i }>{ formatText(p) }</p> ) }
+                        { paragraphs.map( ( p, i ) => {
+                            let key = i
+                            console.log(key)
+                            return <p key={ i }>{ formatText(p) }</p>  
+                        })}
                         
                         <ScrollElement to="contact" spy={true} smooth={true} offset={-50} duration={1000} delay={100}>
                             <div 

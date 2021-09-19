@@ -2,6 +2,8 @@ import Head from 'next/head'
 import Header from './Header'
 import Footer from './Footer'
 
+import LandingPageBG from '../LandingPageBG'
+
 const Layout = ({ properties, children }) => {
 
     return (
@@ -25,7 +27,9 @@ const Layout = ({ properties, children }) => {
 
             <Header />
 
-            <div id="static_bg" />
+            <div id="static_bg">
+                <LandingPageBG />
+            </div>
 
             <main>
                 { children }

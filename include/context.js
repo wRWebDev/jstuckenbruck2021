@@ -4,14 +4,11 @@ const AppContext = createContext()
 
 export function ContextWrapper({ children }) {
 
-    const [ loggedIn, setLoggedInTo ] = useState(false)
-    const [ sessionDetails, setSessionDetailsTo ] = useState({})
+    const [ backgroundSlider, setBackgroundSliderTo ] = useState( null )
 
     let state = {
-        loggedIn,
-        updateLoggedIn: bool => setLoggedInTo(bool),
-        sessionDetails,
-        updateSessionDetails: obj => setSessionDetailsTo(obj)
+        backgroundSlider,
+        setBackgroundSliderTo: slider => setBackgroundSliderTo( slider )
     }
 
     return (
