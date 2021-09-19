@@ -6,11 +6,10 @@ let ScrollElement = Scroll.Link
 const Biography = ({ content }) => {
 
     const paragraphs = content.body.split('\n\n')
-
+    
     return (
         <>
             <section className="parallax bio" id="section_biog">
-
 
                 <div className="parallax-title">
                     <h1 data-aos="fade-up">{ content.title }</h1>
@@ -23,9 +22,7 @@ const Biography = ({ content }) => {
                     <ScrollElement name="biography" />
                     <article className="desktop" id="biography-text">
                         
-                        { paragraphs.map( ( p, i ) => {
-                            let key = i
-                            console.log(key)
+                        { paragraphs.map( (p, i) => {
                             return <p key={ i }>{ formatText(p) }</p>  
                         })}
                         
