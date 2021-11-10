@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { ContextWrapper, getContext } from '../../include/context'
+import { getContext } from '../../include/context'
 
 import Hero from './Hero'
 import Biography from './Biography'
@@ -15,30 +15,55 @@ const LandingPage = ({ content, events }) => {
 
     const jQuerycode = () => {
 
-        let section = 0
-        
-        $(window).scroll( function() {
+        let section, scrollPos, biog, schedule, media
 
-            let biog = $('#section_biog').offset().top
-            let schedule = $('#section_schedule').offset().top
-            let media = $('#section_media').offset().top
-            let scrollPos = window.pageYOffset
+        $(document).ready( () => {
+            section = 0
+            biog = $('#section_biog').offset().top
+            schedule = $('#section_schedule').offset().top
+            media = $('#section_media').offset().top
+        })
 
-            if ( section !== 0 && scrollPos < biog ) {
+        $(window).on('resize', () => {
+            biog = $('#section_biog').offset().top
+            schedule = $('#section_schedule').offset().top
+            media = $('#section_media').offset().top
+        })
+
+        $(window).on('scroll', () => {
+            
+            scrollPos = window.pageYOffset
+
+            if ( scrollPos < biog ) {
+                if ( section === 0 ) return
                 section = 0
                 backgroundSlider.slideTo(0)
-            } else if ( section !== 1 && scrollPos >= biog && scrollPos < schedule ) {
+            }
+            else if ( scrollPos < schedule ) {
+                if ( section === 1 ) return
                 section = 1
                 backgroundSlider.slideTo(1)
-            } else if ( section !== 2 && scrollPos >= schedule && scrollPos < media ) {
+                return
+            }
+            else if ( scrollPos < media ) {
+                if ( section === 2 ) return
                 section = 2
                 backgroundSlider.slideTo(2)
-            } else if ( section !== 3 && scrollPos >= media ) {
+                return
+            }
+            else {
+                if ( section === 3 ) return
                 section = 3
                 backgroundSlider.slideTo(3)
+                return
             }
+        })
+        
+        // setInterval( () => {
 
-        } )
+            
+
+        // }, 500 )
 
     }
 
