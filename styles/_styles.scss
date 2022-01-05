@@ -10,7 +10,6 @@
 }
 
 @import 'variables';
-
 @import 'menu';
 
 html,
@@ -24,6 +23,9 @@ body {
 
 .home {
     height: 100vh;
+    background-position: top center;
+    background-size: cover;
+    background-repeat: no-repeat;
 
     @import 'scrollAnimation';
     
@@ -58,20 +60,12 @@ body {
 .parallax {
     position: relative;
     width: 100%;
-
-    @supports (-webkit-overflow-scrolling: touch) {
-        // background-image: none !important;
-        // background: $dark;
-    }
+    background-image: none;
 
     .parallax-title {
 
-        height: 100vh;
+        height: auto;
         position: relative;
-
-        @supports (-webkit-overflow-scrolling: touch) {
-            // height: 50vh;
-        }
 
         h1 {
             font-size: 4em;
@@ -89,18 +83,19 @@ body {
 
     }
 
+    &.media {
+        .parallax-title {
+            height: 50vh;
+        }
+    }
+
     .parallax-body {
 
         min-height: 100vh;
 
         &.darken {
-            background: rgba(0,0,0,0.8);
             margin-top: 50vh;
             padding: 10vh 0;
-
-            @supports (-webkit-overflow-scrolling: touch) {
-                // margin-top: 10vh;
-            }
         }
 
         &.bio,
@@ -472,6 +467,23 @@ body {
             
         }
 
+    }
+
+    &.chrome {
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: top right 20%;
+
+        .parallax-title {
+            height: 100vh;
+        }
+
+        .parallax-body {
+            &.darken {
+                background: rgba(0,0,0,0.8);
+            }
+        }
     }
 
 }

@@ -3,11 +3,16 @@ import VideoCarousel from '../VideoCarousel'
 import * as Scroll from 'react-scroll'
 let ScrollElement = Scroll.Link
 
-const Media = ({ content }) => {
+const Media = ({ content, isChrome }) => {
+
 
     return (
         <>
-            <section className="parallax media" id="section_media">
+            <section 
+                className={`parallax media ${isChrome ? 'chrome' : ''}`} 
+                id="section_media"
+                style={isChrome ? {backgroundImage:`url(https://jstuckenbruck2021.s3.eu-west-2.amazonaws.com/scaled-images/media-image-1024.jpg)`} : {}}
+            >
                 
                 <div className="parallax-title">
                     <h1>{ content.title }</h1>

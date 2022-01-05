@@ -4,13 +4,17 @@ import * as Scroll from 'react-scroll'
 let ScrollElement = Scroll.Link
 import { nanoid } from 'nanoid'
 
-const Biography = ({ content }) => {
+const Biography = ({ content, isChrome }) => {
 
     const paragraphs = content.body.split('\n\n')
     
     return (
         <>
-            <section className="parallax bio" id="section_biog">
+            <section 
+                className={`parallax bio ${isChrome ? 'chrome' : ''}`} 
+                id="section_biog"
+                style={isChrome ? {backgroundImage:`url(https://jstuckenbruck2021.s3.eu-west-2.amazonaws.com/scaled-images/about-image-1024.jpg)`} : {}}
+            >
 
                 <div className="parallax-title">
                     <h1>{ content.title }</h1>
