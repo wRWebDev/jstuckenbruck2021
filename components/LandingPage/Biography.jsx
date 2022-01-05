@@ -2,6 +2,7 @@ import { formatText } from '../../include/texttools'
 import SocialMedia from '../SocialMedia'
 import * as Scroll from 'react-scroll'
 let ScrollElement = Scroll.Link
+import { nanoid } from 'nanoid'
 
 const Biography = ({ content }) => {
 
@@ -12,21 +13,24 @@ const Biography = ({ content }) => {
             <section className="parallax bio" id="section_biog">
 
                 <div className="parallax-title">
-                    <h1 data-aos="fade-up">{ content.title }</h1>
+                    <h1>{ content.title }</h1>
                 </div>
-                <div 
-                    className="parallax-body darken bio" 
-                    data-aos="fade-in" 
-                    data-aos-duration="1000"
-                >
-                    <ScrollElement name="biography" />
+                <div className="parallax-body darken bio">
+                    <ScrollElement name="biography" to="" />
                     <article className="desktop" id="biography-text">
                         
-                        { paragraphs.map( (p, i) => {
-                            return <p key={ i }>{ formatText(p) }</p>  
-                        })}
+                        {
+                            paragraphs.map( p => <p key={nanoid()}>{formatText(p)}</p> )
+                        }
                         
-                        <ScrollElement to="contact" spy={true} smooth={true} offset={-50} duration={1000} delay={100}>
+                        <ScrollElement 
+                            to="contact" 
+                            spy={true} 
+                            smooth={true} 
+                            offset={-50} 
+                            duration={1000} 
+                            delay={100}
+                        >
                             <div 
                                 className="skiptocontact"
                             >

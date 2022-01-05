@@ -1,16 +1,8 @@
 import Layout from '../components/Layout'
 import LandingPage from '../components/LandingPage'
-import AOS from 'aos'
-import { useEffect } from 'react'
 
 export default function Home({ content, events }) {
 
-  useEffect(()=>{
-    AOS.init({
-      duration: 600
-    })
-  },[])
-  
   const aboutMe = {
     title: 'Johann Stuckenbruck - Conductor',
     description: 'Welocme to the website of international conductor, Johann Stuckenbruck',
@@ -22,17 +14,16 @@ export default function Home({ content, events }) {
   }
   
   return (
-    <Layout properties={aboutMe}>
+    <Layout properties={aboutMe} >
       <LandingPage 
         content={content} 
-        events={events} 
+        events={events}
       />
     </Layout>
   )
 }
 
-
-export async function getServerSideProps( ctx ){
+export async function getServerSideProps( ctx ) {
 
   const contentRes = await fetch(`${process.env.API}content`)
   const contentData = await contentRes.json()

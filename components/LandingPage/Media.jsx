@@ -10,13 +10,13 @@ const Media = ({ content }) => {
             <section className="parallax media" id="section_media">
                 
                 <div className="parallax-title">
-                    <h1 data-aos="fade-up">{ content.title }</h1>
+                    <h1>{ content.title }</h1>
                 </div>
                 <div className="parallax-body media">
 
                     <div className="pre-gallery gallery"></div>
                     
-                    <ScrollElement name="media" />
+                    <ScrollElement name="media" to="" />
 
                     <div className="carousel">
                         <div className="inner gallery">

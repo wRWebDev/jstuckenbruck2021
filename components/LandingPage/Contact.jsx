@@ -80,8 +80,8 @@ const Contact = ({ events }) => {
     
     return (
         <section className="contact">
-            <ScrollElement name="contact" />
-            <h1 data-aos="fade-up">Contact</h1>
+            <ScrollElement name="contact" to="" />
+            <h1>Contact</h1>
             <div className="contact-inner">
                 <div className="subsection">
                     <p>Write to Johann:</p>

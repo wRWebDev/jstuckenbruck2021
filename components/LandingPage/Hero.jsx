@@ -1,7 +1,7 @@
-const Hero = ({ content }) => {
+const Hero = ({ content  }) => {
     return (
         <>
-            <section className="home">
+            <section className='home'>
 
                 <h1>
                     Johann<br/>
