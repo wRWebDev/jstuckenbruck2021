@@ -1,14 +1,17 @@
 import Layout from '../../../components/Admin/Layout/Layout'
 import ContactForm from '../../../components/Admin/EditForms/ContactForm'
 import { useState, useEffect } from 'react'
-import { ref } from '../../../lib/Db/document'
+import { ref, update } from '../../../lib/Db/document'
 import { LoadingPage } from '../../../components/Admin/Layout/Loading'
-import { useDocumentDataOnce } from 'react-firebase-hooks/firestore'
+import { useDocumentData } from 'react-firebase-hooks/firestore'
 import { SaveBar } from '../../../components/Admin/FormElements'
+import UploadImage from '../../../components/Admin/UploadImage'
+
 
 const Edit = () => {
 
-    const [ data, loading, error ] = useDocumentDataOnce( ref( 'singlepage', 'landingpage' ) )
+    const [ data ] = useDocumentData( ref( 'singlepage', 'landingpage' ) )
+    const [ initialLoad, setInitialLoadTo ] = useState( true )
 
     const [ pg_title, setPgTitleTo ] = useState( '' )
     const [ ag_title, setAgTitleTo ] = useState( '' )
@@ -44,13 +47,14 @@ const Edit = () => {
     }
 
     useEffect(() => {
-        if( data ) {
+        if( data && initialLoad ) {
             setPgTitleTo( data.sections.contact.title )
             setAgTitleTo( data.agent.title )
             setAgSubtitleTo( data.agent.subtitle )
             setAgWebsiteTo( data.agent.website )
             setAgEmailTo( data.agent.email )
             setAgPhoneTo( data.agent.phone )
+            setInitialLoadTo( false )
         }
     }, [ data ])
 
@@ -65,29 +69,37 @@ const Edit = () => {
         })
     }
 
+    const updateImage = async filename => {
+        await update( 'singlepage', 'landingpage', { "agent.img": filename } )
+    }
+
     return (
         <Layout>
 
             {
-                loading
+                !data
                     ? <LoadingPage />
-                    : error
-                        ?   error
-                        :   
-                            <>
-                                <SaveBar
-                                    getData={parseData}
-                                    docId="landingpage"
-                                    collection="singlepage"
-                                    defaultText='Save & Close'
-                                    afterSaveRoute={`/admin/edit`}
-                                    showDelete={false}
-                                />
-                                <ContactForm
-                                    values={{ pg_title, ag_title, ag_subtitle, ag_website, ag_email, ag_phone }}
-                                    updateHandler={updateHandler}
-                                /> 
-                            </>
+                    : <>
+                        <SaveBar
+                            getData={parseData}
+                            docId="landingpage"
+                            collection="singlepage"
+                            defaultText='Save & Close'
+                            afterSaveRoute={`/admin/edit`}
+                            showDelete={false}
+                        />
+                        <ContactForm
+                            values={{ pg_title, ag_title, ag_subtitle, ag_website, ag_email, ag_phone }}
+                            updateHandler={updateHandler}
+                        /> 
+                        <UploadImage
+                            name="agentimg"
+                            folder="uploads"
+                            currentImage={ data.agent.img }
+                            updateFilenameInDb={ updateImage }
+                            buttonText="Change Image"
+                        />
+                    </>
             }
     
         </Layout>

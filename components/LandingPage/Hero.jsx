@@ -3,7 +3,7 @@ const Hero = ({ content  }) => {
         <>
             <section 
                 className='home'
-                style={{backgroundImage:`url(${content.img})`}}
+                style={ {backgroundImage:`url(${ process.env.AWS_BUCKET }uploads/${ content.img })`} }
             >
 
                 <h1>

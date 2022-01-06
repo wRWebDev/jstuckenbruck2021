@@ -1,9 +1,29 @@
 import Layout from '../../../components/Admin/Layout/Layout'
+import Link from 'next/link'
 
 const Media = () => {
     return (
         <Layout>
-            Edit Media Content
+            
+            <nav className="adminSubMenu">
+
+                <ul>
+
+                    <Link href="/admin/media/gallery">
+                        <li>
+                            Gallery
+                        </li>
+                    </Link>
+                    <Link href="/admin/media/videos">
+                        <li>
+                            Videos
+                        </li>
+                    </Link>
+
+                </ul>
+
+            </nav>
+
         </Layout>
     )
 }

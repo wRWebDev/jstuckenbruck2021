@@ -13,7 +13,7 @@ const Biography = ({ content, isChrome }) => {
             <section 
                 className={`parallax bio ${isChrome ? 'chrome' : ''}`} 
                 id="section_biog"
-                style={isChrome ? {backgroundImage:`url(${content.img})`} : {}}
+                style={isChrome ? {backgroundImage:`url(${ process.env.AWS_BUCKET }uploads/${ content.img })`} : {}}
             >
 
                 <div className="parallax-title">

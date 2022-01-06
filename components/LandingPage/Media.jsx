@@ -11,9 +11,8 @@ const Media = ({ content, media, isChrome }) => {
             <section 
                 className={`parallax media ${isChrome ? 'chrome' : ''}`} 
                 id="section_media"
-                style={isChrome ? {backgroundImage:`url(https://jstuckenbruck2021.s3.eu-west-2.amazonaws.com/scaled-images/media-image-1024.jpg)`} : {}}
+                style={ isChrome ? {backgroundImage:`url(${ process.env.AWS_BUCKET }uploads/${ content.img })`} : {} }
             >
-                
                 <div className="parallax-title">
                     <h1>{ content.title }</h1>
                 </div>

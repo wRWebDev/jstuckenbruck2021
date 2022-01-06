@@ -120,7 +120,7 @@ const Contact = ({ content, events = [], agent }) => {
                     <div id="forbes">
                         <div className="image">
                             <Image 
-                                src={`${ agent.img }`}
+                                src={`${ process.env.AWS_BUCKET }uploads/${ agent.img }`}
                                 layout='fill'
                                 objectFit='contain'
                                 objectPosition='center'
