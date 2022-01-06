@@ -3,13 +3,13 @@ const Hero = ({ content  }) => {
         <>
             <section 
                 className='home'
-                style={{backgroundImage:`url(https://jstuckenbruck2021.s3.eu-west-2.amazonaws.com/scaled-images/home-image-1024.jpg)`}}
+                style={{backgroundImage:`url(${content.img})`}}
             >
 
                 <h1>
                     Johann<br/>
                     Stuckenbruck
-                    <span>{ content.subtitle }</span>
+                    <span>Conductor</span>
                 </h1>
 
                 <div className="scrollWrapper">

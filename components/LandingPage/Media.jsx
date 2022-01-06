@@ -3,7 +3,7 @@ import VideoCarousel from '../VideoCarousel'
 import * as Scroll from 'react-scroll'
 let ScrollElement = Scroll.Link
 
-const Media = ({ content, isChrome }) => {
+const Media = ({ content, media, isChrome }) => {
 
 
     return (
@@ -27,20 +27,7 @@ const Media = ({ content, isChrome }) => {
                         <div className="inner gallery">
                             <ImageCarousel 
                                 folder="scaled-images"
-                                images={[
-                                    'swiper-image-6.jpg',
-                                    'schedule-image-1024.jpg',
-                                    'media-image-1024.jpg',
-                                    'swiper-image-1.jpg',
-                                    'swiper-image-2.jpg',
-                                    'swiper-image-8.jpg',
-                                    'swiper-image-5.jpg',
-                                    'about-image-1024.jpg',
-                                    'swiper-image-3.jpg',
-                                    'swiper-image-4.jpg',
-                                    'home-image-1024.jpg',
-                                    'swiper-image-7.jpg'
-                                ]}
+                                images={media.images.map( img => img.url ) || []}
                             />
                         </div>
                         <div className="copyright">
@@ -63,18 +50,7 @@ const Media = ({ content, isChrome }) => {
 
                             <VideoCarousel
                                 folder="scaled-images"
-                                videos={[
-                                    {
-                                        id: "NTiKZhjDUIA",
-                                        title: "V.R. Alevizos : Concerto for Piano and Symphony Orchestra",
-                                        subtitle: "Royal Academy of Music Symphony Orchestra"
-                                    },
-                                    {
-                                        id: "Cf8h5dbs_p0",
-                                        title: "Beethoven - Symphony No.5, Mvt II",
-                                        subtitle: "Covent Garden Chamber Orchestra"
-                                    }
-                                ]}
+                                videos={media.videos || []}
                             />
 
                         </div>
@@ -90,3 +66,39 @@ const Media = ({ content, isChrome }) => {
 }
 
 export default Media
+
+/*
+
+    Original Images: 
+
+    [
+        'swiper-image-6.jpg',
+        'schedule-image-1024.jpg',
+        'media-image-1024.jpg',
+        'swiper-image-1.jpg',
+        'swiper-image-2.jpg',
+        'swiper-image-8.jpg',
+        'swiper-image-5.jpg',
+        'about-image-1024.jpg',
+        'swiper-image-3.jpg',
+        'swiper-image-4.jpg',
+        'home-image-1024.jpg',
+        'swiper-image-7.jpg'
+    ]
+
+    Original Videos:
+
+    [
+        {
+            id: "NTiKZhjDUIA",
+            title: "V.R. Alevizos : Concerto for Piano and Symphony Orchestra",
+            subtitle: "Royal Academy of Music Symphony Orchestra"
+        },
+        {
+            id: "Cf8h5dbs_p0",
+            title: "Beethoven - Symphony No.5, Mvt II",
+            subtitle: "Covent Garden Chamber Orchestra"
+        }
+    ]
+
+*/

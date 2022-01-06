@@ -1,7 +1,10 @@
 import Layout from '../components/Layout'
 import LandingPage from '../components/LandingPage'
+import { ref, getDoc } from '../lib/Db/document'
 
-export default function Home({ content, events }) {
+export default function Home({ data }) {
+
+  console.log(data)
 
   const aboutMe = {
     title: 'Johann Stuckenbruck - Conductor',
@@ -16,25 +19,27 @@ export default function Home({ content, events }) {
   return (
     <Layout properties={aboutMe} >
       <LandingPage 
-        content={content} 
-        events={events}
+        content={data} 
       />
     </Layout>
   )
 }
 
-export async function getServerSideProps( ctx ) {
+export async function getServerSideProps() {
 
-  const contentRes = await fetch(`${process.env.API}content`)
-  const contentData = await contentRes.json()
-
-  const eventsRes = await fetch(`${process.env.API}events`)
-  const eventsData = await eventsRes.json()
+  const snapshot = await getDoc( ref( 'singlepage', 'landingpage' ) )
+  const data = snapshot.data()
+  
+  for( let i = 0; i < data.schedule.length; i++ ) {
+    let date = data.schedule[i].datetime.toDate()
+    data.schedule[i].date = date.getDate()
+    data.schedule[i].month = date.getMonth()
+    delete data.schedule[i].datetime
+  }
 
   return {
     props: {
-      content: contentData,
-      events: eventsData
+      data
     }
   }
 

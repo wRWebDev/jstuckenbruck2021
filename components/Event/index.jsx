@@ -1,6 +1,8 @@
+const months = [ 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec' ]
+
 const Event = ({ data }) => {
 
-    const { institution, date, works, performers, url, venue } = data
+    const { institution, date, month, works, performers, url, venue } = data
 
     return (
 
@@ -9,8 +11,8 @@ const Event = ({ data }) => {
                 <div className="row">
                     <header>{institution}</header>
                     <time>
-                        {date.month}<br/>
-                        <span>{date.date.toString().padStart(2, '0')}</span>
+                        {months[month]}<br/>
+                        <span>{date.toString().padStart(2, '0')}</span>
                     </time>
                 </div>
 

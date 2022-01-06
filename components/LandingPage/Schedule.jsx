@@ -18,7 +18,7 @@ const Schedule = ({ content, events, isChrome }) => {
 
                     <ScrollElement name="schedule" to="" />
 
-                    { events.map((e, i) => <Event key={i} data={e} /> ) }
+                    { events.map((event, i) => <Event key={i} data={event} /> ) }
 
                 </div>
             </section>

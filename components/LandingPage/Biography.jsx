@@ -1,4 +1,4 @@
-import { formatText } from '../../include/texttools'
+import { formatText } from '../../lib/helpers/texttools'
 import SocialMedia from '../SocialMedia'
 import * as Scroll from 'react-scroll'
 let ScrollElement = Scroll.Link
@@ -6,14 +6,14 @@ import { nanoid } from 'nanoid'
 
 const Biography = ({ content, isChrome }) => {
 
-    const paragraphs = content.body.split('\n\n')
+    const paragraphs = content.content.split('\n\n')
     
     return (
         <>
             <section 
                 className={`parallax bio ${isChrome ? 'chrome' : ''}`} 
                 id="section_biog"
-                style={isChrome ? {backgroundImage:`url(https://jstuckenbruck2021.s3.eu-west-2.amazonaws.com/scaled-images/about-image-1024.jpg)`} : {}}
+                style={isChrome ? {backgroundImage:`url(${content.img})`} : {}}
             >
 
                 <div className="parallax-title">

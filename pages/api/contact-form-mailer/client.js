@@ -16,7 +16,7 @@
 // import sendgrid sdk for sending email
 const sgMail = require('@sendgrid/mail')
 // import request body validation function
-import { validate } from '../../../include/validation'
+import { validate } from '../../../lib/helpers/validation'
 
 
 export default async function(req, res){

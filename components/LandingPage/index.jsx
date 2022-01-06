@@ -21,11 +21,15 @@ const LandingPage = ({ content, events }) => {
     return (
 
         <>
-            <Hero content={content.hero} />
-            <Biography content={content.biog} isChrome={isChrome} />
-            <Schedule content={content.events} events={events} isChrome={isChrome} />
-            <Media content={content.media} isChrome={isChrome} />
-            <Contact events={events} />
+            <Hero content={content.sections.hero} />
+            <Biography content={content.sections.biography} isChrome={isChrome} />
+            <Schedule content={content.sections.schedule} events={content.schedule} isChrome={isChrome} />
+            <Media content={content.sections.media} media={content.media} isChrome={isChrome} />
+            <Contact 
+                // events={} // for emails
+                content={content.sections.contact}
+                agent={content.agent}
+            />
         </>
 
     )

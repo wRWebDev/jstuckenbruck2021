@@ -1,4 +1,4 @@
-import { socialMediaLinks } from '../../include/socialMediaLinks'
+import { socialMediaLinks } from '../../lib/socialmedia/socialMediaLinks'
 import { useEffect } from 'react'
 import { nanoid } from 'nanoid'
 

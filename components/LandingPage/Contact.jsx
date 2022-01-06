@@ -7,7 +7,7 @@ let ScrollElement = Scroll.Link
 
 const emailFormat = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
-const Contact = ({ events }) => {
+const Contact = ({ content, events = [], agent }) => {
 
     const [ name, setNameTo ] = useState('')
     const [ email, setEmailTo ] = useState('')
@@ -81,7 +81,7 @@ const Contact = ({ events }) => {
     return (
         <section className="contact">
             <ScrollElement name="contact" to="" />
-            <h1>Contact</h1>
+            <h1>{ content.title }</h1>
             <div className="contact-inner">
                 <div className="subsection">
                     <p>Write to Johann:</p>
@@ -115,12 +115,12 @@ const Contact = ({ events }) => {
                     <SocialMedia align="left" />
                 </div>
                 <div className="subsection forbes">
-                    <h2>Forbes</h2>
-                    <p>International Artists Management</p>
+                    <h2>{ agent.title }</h2>
+                    <p>{ agent.subtitle }</p>
                     <div id="forbes">
                         <div className="image">
                             <Image 
-                                src={`${process.env.AWS_BUCKET}scaled-images/forbes.png`}
+                                src={`${ agent.img }`}
                                 layout='fill'
                                 objectFit='contain'
                                 objectPosition='center'
@@ -130,23 +130,23 @@ const Contact = ({ events }) => {
                         <ul>
                             <li>
                                 <a 
-                                    href="https://forbes-artists.com" 
+                                    href={ agent.website } 
                                     target="blank" 
                                     rel="noopener noreferrer"
                                 >
-                                    forbes-artists.com
+                                    { agent.website.replace( /https:\/\/|http:\/\//i, '' ) }
                                 </a>
                             </li>
                             <li>
                                 <a 
-                                    href="mailto:info@forbes-artists.com?subject=Enquiry%20from%20Johann%20Stuckenbruck's%20Website"
+                                    href={`mailto:${agent.email}?subject=Enquiry%20from%20Johann%20Stuckenbruck's%20Website`}
                                 >
-                                    info@forbes-artists.com
+                                    { agent.email }
                                 </a>
                             </li>
                             <li>
-                                <a href="tel:+1%20514-968-7258">
-                                    +1 514-968-7258
+                                <a href={`tel:${encodeURI(agent.phone)}`}>
+                                    { agent.phone }
                                 </a>
                             </li>
                         </ul>
