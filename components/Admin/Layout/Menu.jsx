@@ -1,5 +1,5 @@
 import Link from 'next/link'
-// import { auth, signOut } from '../../lib/Db'
+import { auth, signOut } from '../../../lib/Db'
 import { useRouter } from 'next/router'
 
 const Menu = () => {
@@ -13,11 +13,9 @@ const Menu = () => {
                 <ul>
                     
                     <Link href="/admin"><li>Dashboard</li></Link>
-                    <Link href="/admin/edit/home"><li>Home</li></Link>
-                    <Link href="/admin/edit/biography"><li>Biography</li></Link>
-                    <Link href="/admin/edit/schedule"><li>Schedule</li></Link>
-                    <Link href="/admin/edit/media"><li>Media</li></Link>
-                    <Link href="/admin/edit/contact"><li>Contact</li></Link>
+                    <Link href="/admin/edit"><li>Content</li></Link>
+                    <Link href="/admin/media"><li>Media</li></Link>
+                    <Link href="/admin/schedule"><li>Schedule</li></Link>
                     <Link href="/admin/settings"><li>Settings</li></Link>
                     <li onClick={() => {
                         signOut( auth )

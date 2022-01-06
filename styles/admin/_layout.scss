@@ -78,7 +78,6 @@ main {
 }
 
 .loadingCircle {
-    filter: invert(1);
     animation: loading 1000ms infinite;
     background-image: url('/img/logo.png');
     background-size: contain;

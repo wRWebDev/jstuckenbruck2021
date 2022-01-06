@@ -1,7 +1,8 @@
 @import 'styles';
 @import 'swiper/swiper';
 
-#admin_wrapper {
+#admin_wrapper,
+#login_wrapper {
 
     * {
         appearance: none;
@@ -19,4 +20,15 @@
     
     @import 'admin/styles';
     
+}
+
+#login_wrapper {
+
+    padding: 40pt;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: $dark;
+
 }

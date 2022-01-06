@@ -3,7 +3,7 @@ import Layout from '../../../components/Admin/Layout/Layout'
 const Edit = () => {
     return (
         <Layout>
-            Edit Homepage Image
+            Edit Section Content
         </Layout>
     )
 }

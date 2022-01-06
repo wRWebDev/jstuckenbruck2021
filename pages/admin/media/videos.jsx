@@ -1,9 +1,9 @@
 import Layout from '../../../components/Admin/Layout/Layout'
 
-const Edit = () => {
+const Media = () => {
     return (
         <Layout>
-            Edit Homepage Image
+            Edit Videos
         </Layout>
     )
 }
@@ -12,4 +12,4 @@ const Edit = () => {
 import { checkLogin } from '../../../lib/Auth'
 export const getServerSideProps = async ctx => await checkLogin( ctx )
 
-export default Edit
+export default Media

@@ -1,0 +1,39 @@
+.moduleWrapper{
+    width: 100%;
+    max-width: 400pt;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    img{
+        width: 64pt;
+        margin-bottom: 5pt;
+    }
+
+    form{
+
+        input{
+            padding: 15pt 10pt;
+            margin: 5pt 0;
+            text-align: center;
+        }
+
+        button{
+            padding: 15pt 20pt;
+            margin: 5pt 0;
+        }
+        
+        p, a{
+            font-family: 'Roboto';
+            margin: 15pt 0 10pt;
+            color: #c61a1a !important;
+            font-size: 1rem;
+            letter-spacing: 0.05rem;
+        }
+
+        a{
+            font-style: italic;
+        }
+    }
+}
