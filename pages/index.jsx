@@ -4,8 +4,6 @@ import { ref, getDoc } from '../lib/Db/document'
 
 export default function Home({ data }) {
 
-  console.log(data)
-
   const aboutMe = {
     title: 'Johann Stuckenbruck - Conductor',
     description: 'Welocme to the website of international conductor, Johann Stuckenbruck',
