@@ -1,0 +1,139 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    &::-webkit-scrollbar {
+        display: none; /* Chrome, Safari and Opera */
+    }
+    scrollbar-width: none;  /* Firefox */
+    border: none;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.slideOut-right {
+    right: -1000px !important;
+}
+
+ul {
+    list-style: none;
+}
+
+$page-margin-mobile: 18px;
+$header-height: 84px;
+
+#header {
+    width: 100vw;
+    height: $header-height;
+    padding: 20px $page-margin-mobile;
+    background: $black;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    #logo,
+    #menu_button {
+        cursor: pointer;
+    }
+
+    #logo {
+        width: 60px;
+        height: 60px;
+    }
+
+    #menu_button {
+        width: 30px;
+        height: 30px;
+    }
+
+}
+
+main {
+    min-height: calc(100vh - #{$header-height});
+    padding: 20px $page-margin-mobile;
+    margin: 0 auto;
+    max-width: 800px;
+    
+}
+
+#loadingPage {
+    width: 100%;
+    height: calc(100vh - #{$header-height});
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    h3 {
+        margin: -50pt 0 50pt;
+    }
+
+    .loadingCircle {
+        width: 50pt;
+        height: 50pt;
+    }
+}
+
+.loadingCircle {
+    filter: invert(1);
+    animation: loading 1000ms infinite;
+    background-image: url('/img/logo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.paginationStatus {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10pt 0;
+
+    .loadingCircle {
+        width: 20pt;
+        height: 20pt;
+    }
+
+    .finished {
+        width: 5pt;
+        height: 5pt;
+        border-radius: 100%;
+        background: $darkgrey;
+    }
+
+}
+
+#actionBar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10pt 10pt;
+    margin-top: -15pt;
+    cursor: pointer;
+
+    #backButton {
+        img {
+            width: 15pt;
+            margin: 0 10pt 2pt 0;
+        }
+    }
+
+    #editButton {
+        img {
+            width: 20pt;
+            height: 20pt;
+        }
+    }
+}
+
+
+@import 'mainMenu';
+
+@keyframes loading {
+    from { transform: rotate(0deg) }
+    to { transform: rotate(180deg) }
+}
