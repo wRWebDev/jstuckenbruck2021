@@ -1,0 +1,62 @@
+@import '../../../../styles/admin/colors';
+
+.multiList {
+
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    li {
+        position: relative;
+        width: 100%;
+        border: 5px solid $black !important;
+        padding: 20pt !important;
+        margin: 10pt 0 !important;
+        cursor: pointer;
+
+        .deleteButton {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 20pt;
+            height: 20pt;
+            color: #fff !important;
+            background: $lightred;
+            border-top-left-radius: 100%;
+            display: none;
+
+            &:hover {
+                background: $darkred;
+                &::after {
+                    content: "x";
+                    position: absolute;
+                    right: 0;
+                    bottom: 0;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding-right: 3pt;
+                }
+            }
+        }
+
+        &:hover {
+            .deleteButton {
+                display: block;
+            }
+        }
+
+    }
+
+}
+
+.addButton {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 18pt;
+    height: 18pt;
+    cursor: pointer;
+}

@@ -1,6 +1,6 @@
 import Layout from '../components/Layout'
 import LandingPage from '../components/LandingPage'
-import { ref, getDoc } from '../lib/Db/document'
+import { db, doc, getDoc } from '../lib/Db/document'
 
 export default function Home({ data }) {
 
@@ -25,7 +25,7 @@ export default function Home({ data }) {
 
 export async function getServerSideProps() {
 
-  const snapshot = await getDoc( ref( 'singlepage', 'landingpage' ) )
+  const snapshot = await getDoc( doc( db, 'singlepage', 'landingpage' ) )
   const data = snapshot.data()
   
   for( let i = 0; i < data.schedule.length; i++ ) {

@@ -4,7 +4,7 @@
     top: 50%;
     left: 50%;
     transform: translate(calc(-1 * (50% + 5vw)), -50%);
-    margin: 5vh 5vw;
+    margin: 5vh 5vw !important;
     width: 90vw;
     max-width: 800px;
     max-height: 90vh;
@@ -19,7 +19,7 @@
     z-index: 1000;
 
     header {
-        padding: 10pt;
+        padding: 10pt !important;
         width: 100%;
         background: #000;//rgba(37,37,37, 0.8);
         display: flex;
@@ -27,7 +27,7 @@
         justify-content: space-between;
 
         h3 {
-            color: #fff;
+            color: #fff !important;
         }
 
         img { 
@@ -39,7 +39,7 @@
 
     .content {
         width: 100%;
-        padding: 10pt;
+        padding: 10pt !important;
         overflow-y: scroll;
         flex-grow: 1;
     }

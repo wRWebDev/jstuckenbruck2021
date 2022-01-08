@@ -82,8 +82,10 @@ const aggregateEvents = async checkDate => {
                     
                     const events = {}
                     snapshot.forEach( ( event ) => {
-                        events[event.id] = event.data();
-                    });
+                        let eventData = event.data();
+                        delete eventData.endDate
+                        events[event.id] = eventData;
+                    }); 
 
                     for( let i = 0; i < dates.length; i++ ) {
                         let eventID = dates[i].event;

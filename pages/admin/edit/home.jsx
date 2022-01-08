@@ -1,13 +1,13 @@
 import Layout from '../../../components/Admin/Layout/Layout'
 import UploadImage from '../../../components/Admin/UploadImage'
-import { ref, update } from '../../../lib/Db/document'
+import { db, doc, update } from '../../../lib/Db/document'
 import { LoadingPage } from '../../../components/Admin/Layout/Loading'
 import { useDocumentData } from 'react-firebase-hooks/firestore'
 import Link from 'next/link'
 
 const Edit = () => {
 
-    const [ data ] = useDocumentData( ref( 'singlepage', 'landingpage' ) )
+    const [ data ] = useDocumentData( doc( db, 'singlepage', 'landingpage' ) )
 
     const updateImage = async filename => {
         await update( 'singlepage', 'landingpage', { "sections.hero.img": filename } )

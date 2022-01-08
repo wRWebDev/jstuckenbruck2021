@@ -13,7 +13,8 @@ const SaveBar = ({ getData, docId, collection, defaultText = 'Save', afterSaveRo
     
     const save = async () => {
         setSavingTo( true )
-        await update( collection, docId, getData() )
+        let data = await getData()
+        await update( collection, docId, data )
         if( afterSaveRoute ) router.push( afterSaveRoute )
     }
     

@@ -1,7 +1,7 @@
 import Layout from '../../../components/Admin/Layout/Layout'
 import ContentForm from '../../../components/Admin/EditForms/ContentForm'
 import { useState, useEffect } from 'react'
-import { ref, update } from '../../../lib/Db/document'
+import { db, doc, update } from '../../../lib/Db/document'
 import { LoadingPage } from '../../../components/Admin/Layout/Loading'
 import { useDocumentData } from 'react-firebase-hooks/firestore'
 import { SaveBar } from '../../../components/Admin/FormElements'
@@ -9,7 +9,7 @@ import UploadImage from '../../../components/Admin/UploadImage'
 
 const Edit = () => {
 
-    const [ data ] = useDocumentData( ref( 'singlepage', 'landingpage' ) )
+    const [ data ] = useDocumentData( doc( db, 'singlepage', 'landingpage' ) )
     const [ initialLoad, setInitialLoadTo ] = useState( true )
 
     const [ pg_title, setPgTitleTo ] = useState( '' )
