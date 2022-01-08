@@ -1,15 +1,8 @@
 import { socialMediaLinks } from '../../lib/socialmedia/socialMediaLinks'
-import { useEffect } from 'react'
+import SVG from 'react-inlinesvg';
 import { nanoid } from 'nanoid'
 
 const SocialMedia = ({ align }) => {
-
-    /* On pageload, paint SVGs */
-    useEffect(()=>{
-        socialMediaLinks.forEach( sm => { 
-            document.querySelectorAll(`.sm-${sm.name}`).forEach( el => el.innerHTML = sm.icon)
-        })
-    }, [])
 
     return (
         <div className={`socialMedia align-${align}`}>
@@ -23,9 +16,11 @@ const SocialMedia = ({ align }) => {
                             rel="noopener noreferrer"
                             className="social-media-links"
                         >
-                            <li 
-                                className={`sm-${sm.name}`} 
-                            />
+                            <li className={`sm-${sm.name}`} >
+                                <SVG 
+                                    src={`/img/${sm.svg}.svg`}
+                                />
+                            </li>
                         </a>
                     ))
                 }
