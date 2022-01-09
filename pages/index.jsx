@@ -1,6 +1,7 @@
 import Layout from '../components/Layout'
 import LandingPage from '../components/LandingPage'
 import { db, doc, getDoc } from '../lib/Db/document'
+import { initializeFirebaseManually } from '../lib/Db'
 
 export default function Home({ data }) {
 
@@ -24,6 +25,8 @@ export default function Home({ data }) {
 }
 
 export async function getServerSideProps() {
+
+  initializeFirebaseManually()
 
   const snapshot = await getDoc( doc( db, 'singlepage', 'landingpage' ) )
   const data = snapshot.data()
