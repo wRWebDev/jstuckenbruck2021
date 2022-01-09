@@ -17,6 +17,8 @@
 const sgMail = require('@sendgrid/mail')
 // import request body validation function
 import { validate } from '../../../lib/helpers/validation'
+const months = [ 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec' ]
+
 
 
 export default async function(req, res){
@@ -31,20 +33,17 @@ export default async function(req, res){
 
     let parsedEvents = []
     
-    const parseEvents = n => {
+    const parseEvents = event => {
         parsedEvents.push({
-            link: events[n].url,
-            institution: events[n].institution,
-            date: `${events[n].date.date.toString().padStart(2, '0')} ${events[n].date.month}`,
-            location: events[n].venue
+            link: event.infoLink,
+            institution: event.institution,
+            date: `${event.date.toString().padStart(2, '0')} ${months[event.month]}`,
+            location: event.venue
         })
     }
 
     if(events.length){
-        parseEvents(0)
-        if(events.length > 1) {
-            parseEvents(1)
-        }
+        events.forEach( event => parseEvents( event ) )
     }
 
     // format data to send to sendgrid api

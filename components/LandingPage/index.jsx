@@ -6,7 +6,7 @@ import Schedule from './Schedule'
 import Media from './Media'
 import Contact from './Contact'
 
-const LandingPage = ({ content, events }) => {
+const LandingPage = ({ content }) => {
 
     const [ initialLoad, setInitialLoadTo ] = useState(true)
     const [ isChrome, setIsChromeTo ] = useState(false)
@@ -26,7 +26,7 @@ const LandingPage = ({ content, events }) => {
             <Schedule content={content.sections.schedule} events={content.schedule} isChrome={isChrome} />
             <Media content={content.sections.media} media={content.media} isChrome={isChrome} />
             <Contact 
-                // events={} // for emails
+                events={content.schedule} // for emails
                 content={content.sections.contact}
                 agent={content.agent}
             />
