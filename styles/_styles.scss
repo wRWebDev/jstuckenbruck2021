@@ -384,6 +384,7 @@ body {
                         align-items: center;
                         justify-content: center;
                         background: $dark;
+                        overflow: hidden;
 
                         &.video {
                             display: block;

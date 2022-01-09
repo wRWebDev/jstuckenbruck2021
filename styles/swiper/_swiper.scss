@@ -62,15 +62,12 @@
 }
 .swiper-slide {
   flex-shrink: 0;
-  width: 100%;
-  position: relative;
+  flex-grow: 1;
   transition-property: transform;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 .swiper-slide-invisible-blank {
   visibility: hidden;
