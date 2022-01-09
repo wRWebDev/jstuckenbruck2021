@@ -4,6 +4,8 @@ import Link from 'next/link'
 const Edit = () => {
     return (
         <Layout>
+
+            <h1>Content</h1>
             
             <nav className="adminSubMenu">
 

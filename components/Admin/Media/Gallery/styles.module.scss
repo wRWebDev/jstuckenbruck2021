@@ -1,0 +1,61 @@
+@import '../../../../styles/admin/colors';
+
+.gallery_wrapper {
+
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .gallery_image {
+
+        position: relative;
+        width: 100pt;
+        height: 100pt !important;
+        max-width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 10pt !important;
+        border: solid 2px $black !important;
+
+        .preview_loader {
+            width: 30pt;
+            height: 30pt;
+        }
+
+        .gallery_actions {
+            background: rgba(0,0,0,0.5);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 100;
+
+            span {
+                display: block;
+                padding: 2pt 5pt !important;
+                font-size: 10pt !important;
+                font-weight: bolder;
+                color: #fff !important;
+
+                &.gallery_delete {
+                    background: $lightred;
+                    cursor: pointer;
+
+                    &:hover {
+                        background: $darkred;
+                    }
+                }
+            }
+        }
+
+    }
+
+}

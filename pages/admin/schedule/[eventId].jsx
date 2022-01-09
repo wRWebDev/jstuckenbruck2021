@@ -139,6 +139,8 @@ const Events = ({ eventId }) => {
                                 afterSaveRoute={`/admin/schedule`}
                                 afterDeleteRoute={`/admin/schedule`}
                             />
+                            <h1 style={{marginTop: '40pt'}}>Edit</h1>
+                            <h2>Event</h2>
                             <EventEditor 
                                 values={{ institution, works, performers }}  
                                 inputHandler={inputHandler}

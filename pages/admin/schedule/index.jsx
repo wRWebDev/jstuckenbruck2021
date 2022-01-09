@@ -82,6 +82,7 @@ const Events = () => {
                     style={{ width: '15pt', height: '15pt', cursor: 'pointer' }}
                 />
             </div>
+            <h1>Schedule</h1>
             <InfiniteScroll
                 dataLength={list.length}
                 next={paginate}

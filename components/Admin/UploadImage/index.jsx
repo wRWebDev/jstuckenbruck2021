@@ -4,7 +4,7 @@ import upload from './upload'
 import Image from 'next/image'
 import styles from './styles.module.scss'
 
-const UploadImage = ({ name = '', updateFilenameInDb, folder, currentImage, buttonText = 'Upload' }) => {
+const UploadImage = ({ name = '', updateFilenameInDb, folder, currentImage = '', buttonText = 'Upload', showPreview = true }) => {
 
     const [ uploading, setUploadingTo ] = useState( false )
     const [ image, setImageTo ] = useState( currentImage || '' )
@@ -41,21 +41,25 @@ const UploadImage = ({ name = '', updateFilenameInDb, folder, currentImage, butt
 
     return (
         <div className={styles.upload_image_module}>
-            <div className={styles.preview_wrapper}>
-                <div className={`loadingCircle ${styles.preview_loader}`} />
-                {
-                    !image 
-                        ? ''
-                        : <Image 
-                            src={`${process.env.AWS_BUCKET}${folder}/${image}`}
-                            layout={'fill'}
-                            objectFit={'contain'}
-                            objectPosition={'center'}
-                            placeholder="empty"
-                        />
+            {
+                !showPreview 
+                    ?   ''
+                    :   <div className={styles.preview_wrapper}>
+                            <div className={`loadingCircle ${styles.preview_loader}`} />
+                            {
+                                !image
+                                    ? ''
+                                    : <Image 
+                                        src={`${process.env.AWS_BUCKET}${folder}/${image}`}
+                                        layout={'fill'}
+                                        objectFit={'contain'}
+                                        objectPosition={'center'}
+                                        placeholder="empty"
+                                    />
 
-                }
-            </div>
+                            }
+                        </div>
+            }
             <form onSubmit={ e => e.preventDefault() }>
                 <input 
                     type="file" 
@@ -68,7 +72,7 @@ const UploadImage = ({ name = '', updateFilenameInDb, folder, currentImage, butt
                 <button
                     type="button"
                     onClick={ () => document.getElementById( hiddenInputId ).click() }
-                    class={styles.submitButton}
+                    className={styles.submitButton}
                 >   
                     { uploading ? 'Uploading...': buttonText }
                 </button>

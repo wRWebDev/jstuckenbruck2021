@@ -4,6 +4,8 @@ import Link from 'next/link'
 const Media = () => {
     return (
         <Layout>
+
+            <h1>Media</h1>
             
             <nav className="adminSubMenu">
 

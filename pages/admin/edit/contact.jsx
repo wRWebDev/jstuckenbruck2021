@@ -88,6 +88,8 @@ const Edit = () => {
                             afterSaveRoute={`/admin/edit`}
                             showDelete={false}
                         />
+                        <h1 style={{marginTop: '40pt'}}>Edit</h1>
+                        <h2>Contact</h2>
                         <ContactForm
                             values={{ pg_title, ag_title, ag_subtitle, ag_website, ag_email, ag_phone }}
                             updateHandler={updateHandler}

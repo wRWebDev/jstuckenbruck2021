@@ -25,8 +25,8 @@ const Media = ({ content, media, isChrome }) => {
                     <div className="carousel">
                         <div className="inner gallery">
                             <ImageCarousel 
-                                folder="scaled-images"
-                                images={media.images.map( img => img.url ) || []}
+                                folder="uploads"
+                                images={media.images.map( img => img.filename ) || []}
                             />
                         </div>
                         <div className="copyright">

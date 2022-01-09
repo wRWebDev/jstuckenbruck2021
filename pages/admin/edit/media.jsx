@@ -53,6 +53,8 @@ const Edit = () => {
                             afterSaveRoute={`/admin/edit`}
                             showDelete={false}
                         />
+                        <h1 style={{marginTop: '40pt'}}>Edit</h1>
+                        <h2>Media</h2>
                         <ContentForm
                             values={{ pg_title }}
                             updateHandler={updateHandler}

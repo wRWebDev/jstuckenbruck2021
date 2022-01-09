@@ -3,7 +3,9 @@ import Layout from '../../../components/Admin/Layout/Layout'
 const Media = () => {
     return (
         <Layout>
-            Edit Videos
+            
+            <h1>Videos</h1>
+
         </Layout>
     )
 }

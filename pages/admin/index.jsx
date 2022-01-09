@@ -5,7 +5,8 @@ const Dashboard = () => {
     return (
         <Layout>
             
-            Dashboard
+            <h1>Dashboard</h1>
+            <h2>jstuckenbruck.com</h2>
 
         </Layout>
     )

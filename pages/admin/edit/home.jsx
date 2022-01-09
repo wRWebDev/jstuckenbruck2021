@@ -26,13 +26,17 @@ const Edit = () => {
             {
                 !data 
                     ?   <LoadingPage /> 
-                    :   <UploadImage
-                            name="heroimg"
-                            folder="uploads"
-                            currentImage={ data.sections.hero.img }
-                            updateFilenameInDb={ updateImage }
-                            buttonText="Change Image"
-                        />
+                    :   <>
+                            <h1 style={{marginTop: '20pt'}}>Edit</h1>
+                            <h2 style={{marginBottom: '20pt'}}>Home</h2>
+                            <UploadImage
+                                name="heroimg"
+                                folder="uploads"
+                                currentImage={ data.sections.hero.img }
+                                updateFilenameInDb={ updateImage }
+                                buttonText="Change Image"
+                            />
+                        </>
             }
 
         </Layout>
