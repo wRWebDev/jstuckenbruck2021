@@ -1,0 +1,88 @@
+@import '../../../../styles/admin/colors';
+
+.videos_wrapper {
+    
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .video {
+
+        position: relative;
+        width: 100%;
+        min-height: 80pt;
+        border: 5px solid $black !important;
+        display: flex;
+        align-items: stretch;
+        justify-content: flex-start;
+        margin: 10pt 0 !important;
+
+        .videoImgWrapper {
+
+            position: relative;
+            width: 200pt;
+            max-width: 30%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .preview_loader {
+                width: 30pt;
+                height: 30pt;
+            }
+
+            .videoImg {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+
+
+        }
+
+        .videoInfo {
+            padding: 10pt !important;
+
+        }
+
+        .videoDelete {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 20pt;
+            height: 20pt;
+            color: #fff !important;
+            background: $lightred;
+            border-top-left-radius: 100%;
+            display: none;
+            cursor: pointer;
+
+            &:hover {
+                background: $darkred;
+                &::after {
+                    content: "x";
+                    position: absolute;
+                    right: 0;
+                    bottom: 0;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding-right: 3pt;
+                }
+            }
+        }
+
+        &:hover {
+            .videoDelete {
+                display: block;
+            }
+        }
+
+    }
+
+}
