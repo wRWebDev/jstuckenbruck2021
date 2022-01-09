@@ -22,7 +22,7 @@
   height: 100%;
   margin-left: 0;
   margin-right: 0;
-  overflow: hidden !important;
+  // overflow: hidden !important;
   list-style: none;
   padding: 0;
   // /* Fix of Webkit flickering */
@@ -44,6 +44,7 @@
   display: flex;
   transition-property: transform;
   box-sizing: content-box;
+  // overflow: hidden !important; 
 }
 .swiper-container-android .swiper-slide,
 .swiper-wrapper {

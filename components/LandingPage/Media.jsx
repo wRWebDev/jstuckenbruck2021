@@ -29,6 +29,8 @@ const Media = ({ content, media, isChrome }) => {
                                 images={media.images.map( img => img.filename ) || []}
                             />
                         </div>
+                        <div id="gallerySwiperNext" className="swiper-navigation swiper-navigation-next" />
+                        <div id="gallerySwiperBack" className="swiper-navigation swiper-navigation-back" />
                         <div className="copyright">
                             <span>
                                 <a 
@@ -65,39 +67,3 @@ const Media = ({ content, media, isChrome }) => {
 }
 
 export default Media
-
-/*
-
-    Original Images: 
-
-    [
-        'swiper-image-6.jpg',
-        'schedule-image-1024.jpg',
-        'media-image-1024.jpg',
-        'swiper-image-1.jpg',
-        'swiper-image-2.jpg',
-        'swiper-image-8.jpg',
-        'swiper-image-5.jpg',
-        'about-image-1024.jpg',
-        'swiper-image-3.jpg',
-        'swiper-image-4.jpg',
-        'home-image-1024.jpg',
-        'swiper-image-7.jpg'
-    ]
-
-    Original Videos:
-
-    [
-        {
-            id: "NTiKZhjDUIA",
-            title: "V.R. Alevizos : Concerto for Piano and Symphony Orchestra",
-            subtitle: "Royal Academy of Music Symphony Orchestra"
-        },
-        {
-            id: "Cf8h5dbs_p0",
-            title: "Beethoven - Symphony No.5, Mvt II",
-            subtitle: "Covent Garden Chamber Orchestra"
-        }
-    ]
-
-*/

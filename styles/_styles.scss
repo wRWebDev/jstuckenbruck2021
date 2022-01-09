@@ -335,7 +335,7 @@ body {
                     width: 50%;
                     height: calc(200vw / 6);
                     background: $dark;
-                    // overflow: hidden;
+                    overflow: hidden;
 
                     .swiper-navigation {
 
@@ -384,7 +384,7 @@ body {
                         align-items: center;
                         justify-content: center;
                         background: $dark;
-                        overflow: hidden;
+                        // overflow: hidden !important;
 
                         &.video {
                             display: block;

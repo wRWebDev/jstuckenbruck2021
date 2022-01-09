@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react'
 import SwiperCore, { Navigation, Keyboard, Controller, Lazy } from 'swiper' 
 import { Swiper, SwiperSlide } from 'swiper/react'
 import Image from 'next/image'
@@ -43,8 +42,6 @@ const ImageCarousel = ({ images, folder }) => {
                     )})
                 }
             </Swiper>
-            <div id="gallerySwiperNext" className="swiper-navigation swiper-navigation-next" />
-            <div id="gallerySwiperBack" className="swiper-navigation swiper-navigation-back" />
         </>
     )
 
