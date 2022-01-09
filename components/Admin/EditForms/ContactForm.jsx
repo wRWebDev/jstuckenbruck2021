@@ -45,6 +45,13 @@ const ContactForm = ({ values, updateHandler }) => {
                         onChange={ ({target}) => updateHandler( target.name, target.value ) }
                     />
                     <input 
+                        type="email" 
+                        name="ag_email2"
+                        placeholder="Email address 2"
+                        value={ values.ag_email2 }
+                        onChange={ ({target}) => updateHandler( target.name, target.value ) }
+                    />
+                    <input 
                         type="tel" 
                         name="ag_phone"
                         placeholder="Phone number"

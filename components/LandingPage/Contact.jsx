@@ -3,6 +3,7 @@ import axios from 'axios'
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import * as Scroll from 'react-scroll'
+import { AugmentedAIRuntime } from 'aws-sdk'
 let ScrollElement = Scroll.Link
 
 const emailFormat = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -129,27 +130,46 @@ const Contact = ({ content, events = [], agent }) => {
                             />
                         </div>
                         <ul>
-                            <li>
-                                <a 
-                                    href={ agent.website } 
-                                    target="blank" 
-                                    rel="noopener noreferrer"
-                                >
-                                    { agent.website.replace( /https:\/\/|http:\/\//i, '' ) }
-                                </a>
-                            </li>
-                            <li>
-                                <a 
-                                    href={`mailto:${agent.email}?subject=Enquiry%20from%20Johann%20Stuckenbruck's%20Website`}
-                                >
-                                    { agent.email }
-                                </a>
-                            </li>
-                            <li>
-                                <a href={`tel:${encodeURI(agent.phone)}`}>
-                                    { agent.phone }
-                                </a>
-                            </li>
+                            {
+                                !agent.website ? ''
+                                : <li>
+                                    <a 
+                                        href={ agent.website } 
+                                        target="blank" 
+                                        rel="noopener noreferrer"
+                                    >
+                                        { agent.website.replace( /https:\/\/|http:\/\//i, '' ) }
+                                    </a>
+                                </li>
+                            }
+                            {
+                                !agent.email ? ''
+                                :<li>
+                                    <a 
+                                        href={`mailto:${agent.email}?subject=Enquiry%20from%20Johann%20Stuckenbruck's%20Website`}
+                                    >
+                                        { agent.email }
+                                    </a>
+                                </li>
+                            }
+                            {
+                                !agent.email2 ? ''
+                                :<li>
+                                    <a 
+                                        href={`mailto:${agent.email2}?subject=Enquiry%20from%20Johann%20Stuckenbruck's%20Website`}
+                                    >
+                                        { agent.email2 }
+                                    </a>
+                                </li>
+                            }
+                            {
+                                !agent.phone ? ''
+                                : <li>
+                                    <a href={`tel:${encodeURI(agent.phone)}`}>
+                                        { agent.phone }
+                                    </a>
+                                </li>
+                            }
                         </ul>
                     </div>
                 </div>
