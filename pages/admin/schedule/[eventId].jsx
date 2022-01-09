@@ -30,7 +30,7 @@ const Events = ({ eventId }) => {
             if( a.datetime.seconds > b.datetime.seconds ) return 1
             if( a.datetime.seconds == b.datetime.seconds ) return 0
         })[dates.length - 1].datetime
-        return { institution, works, performers, endDate }
+        return { institution, infoLink, works, performers, endDate }
     }
 
     const addDatesToDb = async dates => {
@@ -49,6 +49,7 @@ const Events = ({ eventId }) => {
     }
 
     const [ institution, setInstitutionTo ] = useState( '' )
+    const [ infoLink, setInfoLinkTo ] = useState( '' )
     const [ works, setWorksTo ] = useState( [] )
     const [ performers, setPerformersTo ] = useState( [] )
     const [ dates, setDatesTo ] = useState( [] )
@@ -58,6 +59,9 @@ const Events = ({ eventId }) => {
         switch ( name ) {
             case 'institution':
                 setInstitutionTo( val )
+                break
+            case 'infoLink':
+                setInfoLinkTo( val )
                 break
             case 'work':
                 setWorksTo( [ ...works, val ] )
@@ -109,6 +113,7 @@ const Events = ({ eventId }) => {
         if( eventData ) {
             console.log( 'updating event data' )
             setInstitutionTo( eventData.institution || '' )
+            setInfoLinkTo( eventData.infoLink || '' )
             setWorksTo( eventData.works || [])
             setPerformersTo( eventData.performers || [] )
         }
@@ -120,8 +125,6 @@ const Events = ({ eventId }) => {
             setInitialLoadTo( false )
             setDatesTo( dateData )
     }, [ dateData ])
-
-    console.log({ dates })
 
     return (
         <Layout>
@@ -142,7 +145,7 @@ const Events = ({ eventId }) => {
                             <h1 style={{marginTop: '40pt'}}>Edit</h1>
                             <h2>Event</h2>
                             <EventEditor 
-                                values={{ institution, works, performers }}  
+                                values={{ institution, infoLink, works, performers }}  
                                 inputHandler={inputHandler}
                                 removeHandler={removeHandler}
                                 dates={dates}

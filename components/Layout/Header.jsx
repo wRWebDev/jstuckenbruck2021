@@ -49,21 +49,21 @@ const Header = () => {
 
                     <ul>
                         <li>
-                            <ScrollLink to="biography" spy={true} smooth={true} offset={-150} duration={1200} delay={100}>
+                            <ScrollLink to="biography" spy={true} smooth={true} offset={-50} duration={1200} delay={100}>
                                 <span>
                                     Biography
                                 </span>
                             </ScrollLink>
                         </li>
                         <li>
-                            <ScrollLink to="schedule" spy={true} smooth={true} offset={-190} duration={1400} delay={100}>
+                            <ScrollLink to="schedule" spy={true} smooth={true} offset={-50} duration={1400} delay={100}>
                                 <span>
                                     Schedule
                                 </span>
                             </ScrollLink>
                         </li>
                         <li>
-                            <ScrollLink to="media" spy={true} smooth={true} offset={-250} duration={1600} delay={100}>
+                            <ScrollLink to="media" spy={true} smooth={true} offset={-50} duration={1600} delay={100}>
                                 <span>
                                     Media
                                 </span>

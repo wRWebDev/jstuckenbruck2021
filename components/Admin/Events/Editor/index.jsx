@@ -37,12 +37,18 @@ const EventEditor = ({ values, inputHandler, removeHandler, dates }) => {
             <form onSubmit={ e => e.preventDefault() }>
 
                 <fieldset>
-                    <label>Institution</label>
+                    <label>Information</label>
                     <input 
                         placeholder="Name of orchestra/opera company"
                         type="text" 
                         value={ values.institution }
                         onChange={ ({ target }) => inputHandler( 'institution', target.value ) }
+                    />
+                    <input 
+                        placeholder="More info link"
+                        type="url" 
+                        value={ values.infoLink }
+                        onChange={ ({ target }) => inputHandler( 'infoLink', target.value ) }
                     />
                 </fieldset>
 

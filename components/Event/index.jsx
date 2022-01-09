@@ -2,7 +2,7 @@ const months = [ 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 
 
 const Event = ({ data }) => {
 
-    const { institution, date, month, works, performers, url, venue } = data
+    const { institution, date, month, works, performers, infoLink, venue } = data
 
     return (
 
@@ -50,14 +50,18 @@ const Event = ({ data }) => {
                     </p>
                     
                 </article>
-
-                <a
-                    target="_blank"
-                    rel="noreferrer noopener"
-                    href={url}
-                >
-                    More Info
-                </a>
+                
+                {
+                    !infoLink
+                        ?   ''
+                        :   <a
+                                target="_blank"
+                                rel="noreferrer noopener"
+                                href={infoLink}
+                            >
+                                More Info
+                            </a>
+                }
 
         </div>
 
