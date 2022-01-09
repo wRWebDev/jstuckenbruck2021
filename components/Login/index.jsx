@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { auth, signInWithEmailAndPassword } from '../../lib/Db'
 import Link from 'next/link'
 import styles from './styles.module.scss'
+import Image from 'next/image'
 
 const Login = ({ redirectUrl }) => {
     
@@ -35,7 +36,15 @@ const Login = ({ redirectUrl }) => {
     return (
             <div className={styles.moduleWrapper}>
                 
-                <img src="/img/logo.png" />
+                <div id={styles.logo}>
+                    <Image 
+                        src="/img/logo.png"
+                        layout={'fill'}
+                        objectFit={'contain'}
+                        objectPosition={'center'}
+                        alt={`Johann Stuckenbruck Logo`}
+                    />
+                </div>
                 
                 <form>
 
@@ -73,7 +82,7 @@ const Login = ({ redirectUrl }) => {
                     
                     {
                         errorMessage != ''
-                            ? <Link href="/auth/password-reset"><a>forgotten your password?</a></Link>
+                            ? <Link href="/auth/password-reset" passHref><a>forgotten your password?</a></Link>
                             : ''
                     }
 

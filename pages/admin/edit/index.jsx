@@ -11,27 +11,27 @@ const Edit = () => {
 
                 <ul>
 
-                    <Link href="/admin/edit/home">
+                    <Link href="/admin/edit/home" passHref>
                         <li>
                             Home
                         </li>
                     </Link>
-                    <Link href="/admin/edit/biography">
+                    <Link href="/admin/edit/biography" passHref>
                         <li>
                             Biography
                         </li>
                     </Link>
-                    <Link href="/admin/edit/schedule">
+                    <Link href="/admin/edit/schedule" passHref>
                         <li>
                             Schedule
                         </li>
                     </Link>
-                    <Link href="/admin/edit/media">
+                    <Link href="/admin/edit/media" passHref>
                         <li>
                             Media
                         </li>
                     </Link>
-                    <Link href="/admin/edit/contact">
+                    <Link href="/admin/edit/contact" passHref>
                         <li>
                             Contact
                         </li>

@@ -36,6 +36,7 @@ const ImageCarousel = ({ images, folder }) => {
                                     layout={'fill'}
                                     objectFit={'contain'}
                                     objectPosition={'center'}
+                                    alt=""
                                 />
                             </div>
                         </SwiperSlide>

@@ -125,6 +125,7 @@ const Contact = ({ content, events = [], agent }) => {
                                 objectFit='contain'
                                 objectPosition='center'
                                 priority={true}
+                                alt="Agent's logo"
                             />
                         </div>
                         <ul>

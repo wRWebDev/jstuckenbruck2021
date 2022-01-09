@@ -30,7 +30,7 @@ const Edit = () => {
             setPgTitleTo( data.sections.schedule.title )
             setInitialLoadTo( false )
         }
-    }, [ data ])
+    }, [ data, initialLoad ])
 
     const parseData = () => ({ "sections.schedule.title": pg_title })
 

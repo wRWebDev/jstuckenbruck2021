@@ -2,6 +2,7 @@ import Popup from '../../Popup'
 import { useState } from 'react'
 import styles from './styles.module.scss'
 import { LoadingMore } from '../../Layout/Loading'
+import Image from 'next/image'
 
 const EventEditor = ({ values, inputHandler, removeHandler, dates }) => {
 
@@ -68,11 +69,19 @@ const EventEditor = ({ values, inputHandler, removeHandler, dates }) => {
                             ))
                         }
                     </ul>                    
-                    <img 
-                        src="/img/add.png" 
-                        onClick={ () => document.getElementById( 'addWorkPopup' ).classList.remove( 'hidden' ) }
+                    <div 
                         className={styles.addButton}
-                    />
+                        onClick={ () => document.getElementById( 'addWorkPopup' ).classList.remove( 'hidden' ) }   
+                    >
+                        <Image
+                            src="/img/add.png"
+                            layout="fill"
+                            objectFit={'contain'}
+                            objectPosition={'center'}
+                            placeholder="empty"
+                            alt="Add new work"
+                        />
+                    </div>
                 </fieldset>
 
                 <fieldset style={{position:'relative'}}>
@@ -91,11 +100,19 @@ const EventEditor = ({ values, inputHandler, removeHandler, dates }) => {
                             ))
                         }
                     </ul>
-                    <img 
-                        src="/img/add.png" 
+                    <div 
                         className={styles.addButton}
                         onClick={ () => document.getElementById( 'addPerformerPopup' ).classList.remove( 'hidden' ) }
-                    />
+                    >
+                        <Image
+                            src="/img/add.png"
+                            layout="fill"
+                            objectFit={'contain'}
+                            objectPosition={'center'}
+                            placeholder="empty"
+                            alt="Add new performer"
+                        />
+                    </div>
                 </fieldset>
 
                 <fieldset style={{position:'relative'}}>
@@ -124,11 +141,19 @@ const EventEditor = ({ values, inputHandler, removeHandler, dates }) => {
                                     ))
                         }
                     </ul>
-                    <img 
-                        src="/img/add.png" 
+                    <div 
                         className={styles.addButton}
                         onClick={ () => document.getElementById( 'addDatePopup' ).classList.remove( 'hidden' ) }
-                    />
+                    >
+                        <Image
+                            src="/img/add.png"
+                            layout="fill"
+                            objectFit={'contain'}
+                            objectPosition={'center'}
+                            placeholder="empty"
+                            alt="Add new date"
+                        />
+                    </div>
                 </fieldset>
 
             </form>

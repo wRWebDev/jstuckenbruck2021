@@ -6,6 +6,7 @@ import InfiniteScroll from 'react-infinite-scroll-component'
 import { useState, useEffect } from 'react'
 import EventList from '../../../components/Admin/Events/List'
 import { useRouter } from 'next/router'
+import Image from 'next/image'
 
 const loadLimit = 10
 
@@ -56,7 +57,7 @@ const Events = () => {
 
     useEffect(() => {
         if( !list.length && initialLoad ) loadData( defaultQuery )
-    }, [ initialLoad ])
+    }, [ initialLoad, defaultQuery, list.length ])
 
     const router = useRouter()
 
@@ -76,11 +77,19 @@ const Events = () => {
                 justifyContent: 'flex-end',
                 padding: '10pt 0 !important'
             }}>
-                <img 
-                    src="/img/add.png"
-                    onClick={ () => addNewEvent() }
-                    style={{ width: '15pt', height: '15pt', cursor: 'pointer' }}
-                />
+                <div 
+                    style={{ position: 'relative', height: '15pt', width: '15pt', cursor: 'pointer' }}
+                    onClick={ () => addNewEvent() }    
+                >
+                    <Image
+                        src="/img/add.png"
+                        layout="fill"
+                        objectFit={'contain'}
+                        objectPosition={'center'}
+                        placeholder="empty"
+                        alt="Add new concert to your schedule"
+                    />
+                </div>
             </div>
             <h1>Schedule</h1>
             <InfiniteScroll

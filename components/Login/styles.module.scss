@@ -6,9 +6,11 @@
     align-items: center;
     justify-content: center;
 
-    img{
+    #logo{
         width: 64pt;
+        height: 64pt;
         margin-bottom: 5pt;
+        position: relative;
     }
 
     form{

@@ -21,6 +21,7 @@ const Gallery = ({ images, folder, handleDelete }) => {
                                     layout={'fill'}
                                     objectFit={'contain'}
                                     objectPosition={'center'}
+                                    alt={`Image ${i} - ${image.credit}`}
                                 />
                                 <div className={styles.gallery_actions}>
                                     <span className={styles.gallery_order}>

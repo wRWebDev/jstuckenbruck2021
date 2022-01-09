@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { auth, signOut } from '../../../lib/Db'
 import { useRouter } from 'next/router'
+import Image from 'next/image'
 
 const Menu = () => {
 
@@ -12,11 +13,11 @@ const Menu = () => {
             <nav>
                 <ul>
                     
-                    <Link href="/admin"><li>Dashboard</li></Link>
-                    <Link href="/admin/edit"><li>Content</li></Link>
-                    <Link href="/admin/media"><li>Media</li></Link>
-                    <Link href="/admin/schedule"><li>Schedule</li></Link>
-                    <Link href="/admin/settings"><li>Settings</li></Link>
+                    <Link href="/admin" passHref><li>Dashboard</li></Link>
+                    <Link href="/admin/edit" passHref><li>Content</li></Link>
+                    <Link href="/admin/media" passHref><li>Media</li></Link>
+                    <Link href="/admin/schedule" passHref><li>Schedule</li></Link>
+                    <Link href="/admin/settings" passHref><li>Settings</li></Link>
                     <li onClick={() => {
                         signOut( auth )
                             .then( () => router.push('/auth/login') )
@@ -30,10 +31,20 @@ const Menu = () => {
                 </ul>
             </nav>
 
-            <img 
-                src="/img/close.png"
+            <div 
+                id="menu_button" 
                 onClick={() => document.getElementById( 'mainMenu' ).classList.add( 'hidden' ) }
-            />
+            >
+                <Image
+                    src="/img/close.png"
+                    layout="fill"
+                    objectFit={'contain'}
+                    objectPosition={'center'}
+                    placeholder="empty"
+                    alt="Close the menu"
+                    priority={true}
+                />
+            </div>
 
         </div>
     )

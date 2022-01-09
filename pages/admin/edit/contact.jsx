@@ -56,7 +56,7 @@ const Edit = () => {
             setAgPhoneTo( data.agent.phone )
             setInitialLoadTo( false )
         }
-    }, [ data ])
+    }, [ data, initialLoad ])
 
     const parseData = () => {
         return ({

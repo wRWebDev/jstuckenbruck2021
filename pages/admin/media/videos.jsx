@@ -5,6 +5,7 @@ import Videos from '../../../components/Admin/Media/Videos'
 import { LoadingPage } from '../../../components/Admin/Layout/Loading'
 import Popup from '../../../components/Admin/Popup'
 import { useState } from 'react'
+import Image from 'next/image'
 
 const Media = () => {
 
@@ -60,11 +61,19 @@ const Media = () => {
                     ?   <LoadingPage />
                     :   <>
                             <h1>Videos</h1>
-                            <img
-                                src="/img/add.png"
-                                style={{ width: '15pt', height: '15pt', position: 'absolute', top: '10pt', right: '10pt', cursor: 'pointer' }}
-                                onClick={ () => document.getElementById( 'addVideoPopup' ).classList.remove( 'hidden' ) }
-                            />
+                            <div 
+                                style={{ position: 'absolute', top: '10pt', right: '10pt', height: '15pt', width: '15pt', cursor: 'pointer' }}
+                                onClick={ () => document.getElementById( 'addVideoPopup' ).classList.remove( 'hidden' ) }    
+                            >
+                                <Image
+                                    src="/img/add.png"
+                                    layout="fill"
+                                    objectFit={'contain'}
+                                    objectPosition={'center'}
+                                    placeholder="empty"
+                                    alt="Add new video"
+                                />
+                            </div>
                             <Videos 
                                 videos={ data.media.videos || [] }
                                 handleDelete={deleteVideo}
@@ -77,12 +86,12 @@ const Media = () => {
                                     e.preventDefault()
                                     addVid( title, subtitle, getVidId( link ) )
                                 }}>
+                                    {
+                                        !(link && getVidId(link))
+                                            ? ''
+                                            : <Thumbnail id={ getVidId( link ) } />
+                                    }
                                     <fieldset>
-                                        {
-                                            !(link && getVidId(link))
-                                                ? ''
-                                                : <img src={`https://img.youtube.com/vi/${getVidId(link)}/hqdefault.jpg`} style={{ width: '84%', margin: '0 8%' }} />
-                                        }
                                         <input
                                             type="url"
                                             placeholder="Youtube link"
@@ -104,7 +113,7 @@ const Media = () => {
                                     </fieldset>
                                     {
                                         (link && !getVidId(link))
-                                            ? <p>If you've entered a link and can't see the thumbnail, please check the link is correct.</p>
+                                            ? <p>If you&apos;ve entered a link and can&apos;t see the thumbnail, please check the link is correct.</p>
                                             : ''
                                     }  
                                     <div className="submitContainer">
@@ -122,6 +131,22 @@ const Media = () => {
             
 
         </Layout>
+    )
+}
+
+const Thumbnail = ({id}) => {
+    console.log(id)
+    return (
+        <div style={{ width: '84%', height: '30vh', margin: '0 8%', position: 'relative' }}>
+            <Image
+                src={`https://img.youtube.com/vi/${id}/hqdefault.jpg`}
+                layout="fill"
+                objectFit={'cover'}
+                objectPosition={'center'}
+                placeholder="empty"
+                alt="Video thumbnail"
+            />
+        </div>
     )
 }
 

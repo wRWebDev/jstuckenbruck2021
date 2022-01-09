@@ -35,7 +35,7 @@ const UploadImage = ({ name = '', updateFilenameInDb, folder, currentImage = '',
 
     useEffect(() => {
         if( currentImage !== image ) setImageTo( currentImage )
-    }, [ currentImage ])
+    }, [ currentImage, image ])
 
     const hiddenInputId = `img_uploader_${name.replace(/s/g, '')}`
 

@@ -16,7 +16,7 @@ const LandingPage = ({ content, events }) => {
                 setIsChromeTo(true)
             setInitialLoadTo(false)
         }
-    }, [])
+    }, [ initialLoad ])
 
     return (
 

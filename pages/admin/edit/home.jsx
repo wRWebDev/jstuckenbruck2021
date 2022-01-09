@@ -4,6 +4,7 @@ import { db, doc, update } from '../../../lib/Db/document'
 import { LoadingPage } from '../../../components/Admin/Layout/Loading'
 import { useDocumentData } from 'react-firebase-hooks/firestore'
 import Link from 'next/link'
+import Image from 'next/image'
 
 const Edit = () => {
 
@@ -16,11 +17,21 @@ const Edit = () => {
     return (
         <Layout>
 
-            <Link href="/admin/edit">
-                <img
-                    id="backButton" 
-                    src="/img/back.svg" 
-                />
+            <Link href="/admin/edit" passHref>
+                <div style={{
+                    position: 'relative',
+                    height: '15pt',
+                    width: '15pt'
+                }}>
+                    <Image
+                        src="/img/back.svg"
+                        layout="fill"
+                        objectFit={'contain'}
+                        objectPosition={'center'}
+                        placeholder="empty"
+                        alt="Back to content"
+                    />
+                </div>
             </Link> 
 
             {

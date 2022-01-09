@@ -35,7 +35,7 @@ const Edit = () => {
             setPgContentTo( data.sections.biography.content )
             setInitialLoadTo( false )
         }
-    }, [ data ])
+    }, [ data, initialLoad ])
 
     const parseData = () => {
         return ({

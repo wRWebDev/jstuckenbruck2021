@@ -11,12 +11,12 @@ const Media = () => {
 
                 <ul>
 
-                    <Link href="/admin/media/gallery">
+                    <Link href="/admin/media/gallery" passHref>
                         <li>
                             Gallery
                         </li>
                     </Link>
-                    <Link href="/admin/media/videos">
+                    <Link href="/admin/media/videos" passHref>
                         <li>
                             Videos
                         </li>

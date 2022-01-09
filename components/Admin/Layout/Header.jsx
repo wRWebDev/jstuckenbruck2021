@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router'
+import Image from 'next/image'
 
 const Header = () => {
     
@@ -11,17 +12,37 @@ const Header = () => {
     return (
         <div id="header">
 
-            <img 
+            <div 
                 id="logo" 
-                src="/img/logo.png" 
-                onClick={() => goHome()}    
-            />
+                onClick={() => goHome()}
+                style={{position:'relative'}}
+            >
+                <Image
+                    src="/img/logo.png" 
+                    layout="fill"
+                    objectFit={'contain'}
+                    objectPosition={'center'}
+                    placeholder="empty"
+                    alt="View your website"
+                    priority={true}
+                />
+            </div>
 
-            <img 
+            <div 
                 id="menu_button" 
-                src="/img/menu.png" 
                 onClick={() => document.getElementById( 'mainMenu' ).classList.toggle( 'hidden' )}
-            />
+                style={{position:'relative'}}
+            >
+                <Image
+                    src="/img/menu.png" 
+                    layout="fill"
+                    objectFit={'contain'}
+                    objectPosition={'center'}
+                    placeholder="empty"
+                    alt="View the menu"
+                    priority={true}
+                />
+            </div>
 
         </div>
     )

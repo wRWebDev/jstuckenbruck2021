@@ -124,7 +124,7 @@ const Events = ({ eventId }) => {
             console.log( 'updating date data' )
             setInitialLoadTo( false )
             setDatesTo( dateData )
-    }, [ dateData ])
+    }, [ dateData, initialLoad ])
 
     return (
         <Layout>

@@ -90,7 +90,7 @@ const SaveBar = ({ getData, docId, collection, defaultText = 'Save', afterSaveRo
                 title="Confirm"
             >
                 <form style={{minHeight:'100%'}} onSubmit={e=>e.preventDefault()}>
-                    <p>Please type 'DELETE' below to confirm your intention to delete this record.</p>
+                    <p>Please type &apos;DELETE&apos; below to confirm your intention to delete this record.</p>
                     <input 
                         type="text"
                         value={confirmInput}
