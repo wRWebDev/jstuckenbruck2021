@@ -45,6 +45,13 @@ exports.onDateDelete = functions
         return aggregateEvents( data.datetime );
     });
 
+exports.refreshEventsEveryDay = functions
+    .pubsub
+    .schedule("once a day")
+    .onRun( () => {
+        return aggregateEvents( false );
+    })
+
 const aggregateEvents = async checkDate => {
         
     let today = new Date();
@@ -68,9 +75,16 @@ const aggregateEvents = async checkDate => {
                 return null;
             }
 
-            if( checkDate.toDate() > dates[dates.length - 1].datetime.toDate() ) {
-                console.log( "Events do not need re-aggregating." );
-                return null;
+            if( checkDate ) {
+                if( checkDate.toDate() > dates[dates.length - 1].datetime.toDate() ) {
+                    console.log( "Events do not need re-aggregating." );
+                    return null;
+                }
+            } else {
+                if( new Date() < dates[0].datetime.toDate() ) {
+                    console.log( "Events do not need re-aggregating." );
+                    return null;
+                }
             }
 
             return eventsRef = admin.firestore()
