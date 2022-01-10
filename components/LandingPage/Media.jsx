@@ -29,8 +29,6 @@ const Media = ({ content, media, isChrome }) => {
                                 images={media.images.map( img => img.filename ) || []}
                             />
                         </div>
-                        <div id="gallerySwiperNext" className="swiper-navigation swiper-navigation-next" />
-                        <div id="gallerySwiperBack" className="swiper-navigation swiper-navigation-back" />
                         <div className="copyright">
                             <span>
                                 <a 

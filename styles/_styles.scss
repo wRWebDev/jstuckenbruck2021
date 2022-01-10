@@ -335,7 +335,14 @@ body {
                     width: 50%;
                     height: calc(200vw / 6);
                     background: $dark;
-                    overflow: hidden;
+                    // overflow: hidden;
+
+                    .carousel-wrapper {
+                        position: relative;
+                        width: 100%;
+                        height: 100%;
+                        overflow: hidden;
+                    }
 
                     .swiper-navigation {
 
