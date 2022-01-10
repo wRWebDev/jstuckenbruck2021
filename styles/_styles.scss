@@ -538,7 +538,7 @@ body {
         display: flex;
         flex-direction: row;
         @media only screen and (max-width: $MOBILE) { 
-            flex-direction: column;
+            flex-direction: column-reverse;
         }
 
         .subsection {
@@ -578,14 +578,10 @@ body {
                 a {
                     font-weight: 300;
                 }
-                @media only screen and (min-width: $MOBILE) { 
-                    text-align: right;
-                }
-                @media only screen and ( max-width: $MOBILE ) {
-                    ul li {
-                        text-align: left !important;
-                    }
-                } 
+            }
+
+            .agent-titles {
+                text-align: center;
             }
 
             form {
@@ -680,14 +676,12 @@ body {
                     flex-wrap: wrap;
                 }
     
-                
-    
                 ul {
                     width: 100%;
                     list-style: none;
                     li {
                         color: inherit;
-                        text-align: right;
+                        text-align: center;
                         padding: 5pt 0;
                         @media only screen and (max-width: 500px) {
                             text-align: center;

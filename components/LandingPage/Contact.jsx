@@ -119,8 +119,8 @@ const Contact = ({ content, events = [], agent }) => {
                     <SocialMedia align="left" />
                 </div>
                 <div className="subsection agent">
-                    <h2>{ agent.title }</h2>
-                    <p>{ agent.subtitle }</p>
+                    <h2 className="agent-titles">{ agent.title }</h2>
+                    <p className="agent-titles">{ agent.subtitle }</p>
                     {
                         !agent.img ? ''
                             : <div 
