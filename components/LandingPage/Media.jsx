@@ -26,19 +26,11 @@ const Media = ({ content, media, isChrome }) => {
                         <div className="inner gallery">
                             <ImageCarousel 
                                 folder="uploads"
-                                images={media.images.map( img => img.filename ) || []}
+                                images={media.images || []}
                             />
                         </div>
                         <div className="copyright">
-                            <span>
-                                <a 
-                                    href="https://www.radekdranikowski.co.uk/"
-                                    rel="noopener noreferrer"
-                                    target="_blank"
-                                >
-                                    &copy; Radek Dranikowski
-                                </a>
-                            </span>
+                            <span id="photocredit" />
                         </div>
                     </div>
 
