@@ -1,4 +1,4 @@
-const { chrome } = require('is_js')
+const { chrome, firefox } = require('is_js')
 import { useState, useEffect } from 'react'
 import Hero from './Hero'
 import Biography from './Biography'
@@ -12,7 +12,7 @@ const LandingPage = ({ content }) => {
     const [ isChrome, setIsChromeTo ] = useState(false)
     useEffect(() => {
         if(initialLoad){
-            if( chrome() ) 
+            if( chrome() || firefox() ) 
                 setIsChromeTo(true)
             setInitialLoadTo(false)
         }
