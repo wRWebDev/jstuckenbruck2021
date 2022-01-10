@@ -100,13 +100,13 @@ const Media = () => {
                                         />
                                         <input 
                                             type="text" 
-                                            placeholder="Title"
+                                            placeholder="Title / piece"
                                             value={ title }
                                             onChange={ ({ target }) => setTitleTo( target.value ) }    
                                         />
                                         <input 
                                             type="text" 
-                                            placeholder="Subtitle"
+                                            placeholder="Subtitle / institution"
                                             value={ subtitle }
                                             onChange={ ({ target }) => setSubtitleTo( target.value ) }    
                                         />
