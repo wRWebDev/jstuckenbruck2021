@@ -77,36 +77,80 @@ const Events = ({ eventId }) => {
                     status: 'toAdd',
                     uid: nanoid(20)
                 }])
+                break
 
             default:
                 break
         }
     }
 
+    const updateHandler = ( index, name, data, oldData ) => {
+        switch ( name ) {
+
+            case 'work': 
+                setWorksTo( works.map( ( w, i ) => {
+                    if( i !== index ) return w
+                    return data
+                }))
+                break
+            case 'performer': 
+                setPerformersTo( performers.map( ( p, i ) => {
+                    if( i !== index ) return p
+                    return data
+                }))
+                break
+            case 'date':
+                let dateList = dates.filter( d => {
+                    if( d.uid === oldData.uid ) {
+                        if( d.status === 'toAdd' ) 
+                            return false // handle added and deleted
+                        d.status = 'toDel'
+                    }
+                    return true
+                })
+                dateList.push({
+                    event: eventId,
+                    venue: data.venue,
+                    datetime: Timestamp.fromDate( new Date( data.datetime ) ),
+                    status: 'toAdd',
+                    uid: nanoid(20)
+                })
+                setDatesTo( dateList )
+                break
+
+        }
+
+        console.log( name, works, performers )
+    }
+
     const removeHandler = ( name, data ) => {
+        console.log( 'removing:', { name, data } )
         switch ( name ) {
 
             case 'work':
                 setWorksTo( works.filter( w => { 
                     if( (w.composer !== data.composer) && ( w.composition !== data.composition ) )
-                        return w
+                        return true
                 }))
                 break
             case 'performer': 
                 setPerformersTo( performers.filter( p => {
                     if( ( p.name !== data.name ) && ( p.instrument !== data.instrument ) )
-                        return p
+                        return true
                 }))
                 break
             case 'date': 
                 setDatesTo( dates.filter( d => {
                     if( d.uid === data.uid ) {
-                        if( d.status === 'toAdd' ) return null // handle added and deleted
+                        if( d.status === 'toAdd' ) return false // handle added and deleted
                         d.status = 'toDel'
                     }
-                    return d
+                    return true
                 }))
+                console.log(dates)
+                break
         }
+
     }
 
     useEffect( () => {
@@ -147,6 +191,7 @@ const Events = ({ eventId }) => {
                             <EventEditor 
                                 values={{ institution, infoLink, works, performers }}  
                                 inputHandler={inputHandler}
+                                updateHandler={updateHandler}
                                 removeHandler={removeHandler}
                                 dates={dates}
                             />

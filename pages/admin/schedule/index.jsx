@@ -45,6 +45,9 @@ const Events = () => {
     }
 
     const paginate = async () => {
+        
+        if( !list.length ) return
+
         let lastDocument = await getDoc( doc( db, 'schedule', list[list.length - 1].uid ))
         let paginateQuery = query(
             collection( db, 'schedule' ),
@@ -53,6 +56,7 @@ const Events = () => {
             startAfter(lastDocument)
         )
         loadData( paginateQuery )
+
     }
 
     useEffect(() => {
@@ -68,6 +72,8 @@ const Events = () => {
             query: { eventId }
         })
     }
+
+    console.log( list )
 
     return (
         <Layout>

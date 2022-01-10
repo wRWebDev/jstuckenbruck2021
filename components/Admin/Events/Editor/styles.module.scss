@@ -16,24 +16,19 @@
         margin: 10pt 0 !important;
         cursor: pointer;
 
+        .updateButton,
         .deleteButton {
             position: absolute;
-            bottom: 0;
             right: 0;
             width: 20pt;
             height: 20pt;
             color: #fff !important;
-            background: $lightred;
-            border-top-left-radius: 100%;
             display: none;
 
             &:hover {
-                background: $darkred;
                 &::after {
-                    content: "x";
                     position: absolute;
                     right: 0;
-                    bottom: 0;
                     display: flex;
                     align-items: center;
                     justify-content: center;
@@ -42,7 +37,36 @@
             }
         }
 
+        .updateButton {
+            top: 0;
+            background: $lightgreen;
+            border-bottom-left-radius: 100%;
+
+            &:hover {
+                background: $darkgreen;
+                &::after {
+                    content: "✎";
+                    top: 0;
+                }
+            }
+        }
+
+        .deleteButton {
+            bottom: 0;
+            background: $lightred;
+            border-top-left-radius: 100%;
+
+            &:hover {
+                background: $darkred;
+                &::after {
+                    content: "x";
+                    bottom: 0;
+                }
+            }
+        }
+
         &:hover {
+            .updateButton,
             .deleteButton {
                 display: block;
             }
