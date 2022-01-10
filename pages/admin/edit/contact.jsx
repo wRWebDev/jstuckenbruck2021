@@ -20,6 +20,7 @@ const Edit = () => {
     const [ ag_email, setAgEmailTo ] = useState( '' )
     const [ ag_email2, setAgEmail2To ] = useState( '' )
     const [ ag_phone, setAgPhoneTo ] = useState( '' )
+    const [ ag_phone2, setAgPhone2To ] = useState( '' )
 
     const updateHandler = ( name, val ) => {
         
@@ -45,6 +46,9 @@ const Edit = () => {
             case 'ag_phone':
                 setAgPhoneTo( val )
                 break
+            case 'ag_phone2':
+                setAgPhone2To( val )
+                break
             default:
                 break
         }
@@ -59,6 +63,7 @@ const Edit = () => {
             setAgEmailTo( data.agent.email )
             setAgEmail2To( data.agent.email2 )
             setAgPhoneTo( data.agent.phone )
+            setAgPhone2To( data.agent.phone2 )
             setInitialLoadTo( false )
         }
     }, [ data, initialLoad ])
@@ -71,12 +76,17 @@ const Edit = () => {
             "agent.website": ag_website,
             "agent.email": ag_email,
             "agent.email2": ag_email2,
-            "agent.phone": ag_phone
+            "agent.phone": ag_phone,
+            "agent.phone2": ag_phone2,
         })
     }
 
     const updateImage = async filename => {
         await update( 'singlepage', 'landingpage', { "agent.img": filename } )
+    }
+
+    const deleteImage = async () => {
+        await update( 'singlepage', 'landingpage', { "agent.img": "" } )
     }
 
     return (
@@ -97,7 +107,7 @@ const Edit = () => {
                         <h1 style={{marginTop: '40pt'}}>Edit</h1>
                         <h2>Contact</h2>
                         <ContactForm
-                            values={{ pg_title, ag_title, ag_subtitle, ag_website, ag_email, ag_email2, ag_phone }}
+                            values={{ pg_title, ag_title, ag_subtitle, ag_website, ag_email, ag_email2, ag_phone, ag_phone2 }}
                             updateHandler={updateHandler}
                         /> 
                         <UploadImage
@@ -107,6 +117,18 @@ const Edit = () => {
                             updateFilenameInDb={ updateImage }
                             buttonText="Change Image"
                         />
+                        <button 
+                            style={{
+                                background: 'rgb(146, 27, 27)',
+                                color: '#fff !important',
+                                width: '100%',
+                                padding: '7pt 14pt 5pt',
+                                borderRadius: 0
+                            }}
+                            onClick={ () => deleteImage() }    
+                        >
+                            Delete Image
+                        </button>
                     </>
             }
     

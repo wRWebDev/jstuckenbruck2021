@@ -37,3 +37,11 @@ yarn-error.log*
 # design reference pics
 /Draft images
 /newImages
+
+# firebase emulation
+firestore.rules
+firestore.indexes.json
+firestore-debug.log
+
+# secret image
+test-only.png

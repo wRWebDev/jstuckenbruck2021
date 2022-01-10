@@ -42,7 +42,7 @@ const UploadImage = ({ name = '', updateFilenameInDb, folder, currentImage = '',
     return (
         <div className={styles.upload_image_module}>
             {
-                !showPreview 
+                !showPreview || !image
                     ?   ''
                     :   <div className={styles.preview_wrapper}>
                             <div className={`loadingCircle ${styles.preview_loader}`} />

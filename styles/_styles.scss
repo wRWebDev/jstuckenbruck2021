@@ -537,17 +537,25 @@ body {
         .subsection {
 
             width: 100%;
-            padding: 0 5pt;
+            padding: 0 10pt;
 
             &:nth-of-type(1) {
-                margin-left: -5pt;
+                margin-left: -10pt;
             }
             &:nth-of-type(2) {
-                margin-right: -5pt;
+                margin-right: -10pt;
             }
             
             @media only screen and (max-width: $MOBILE) {
                 padding: 10pt 0;
+                margin: 10pt 0;
+
+                &:nth-of-type(1) {
+                    margin-left: 0;
+                }
+                &:nth-of-type(2) {
+                    margin-right: 0;
+                }
             }
 
             p {
@@ -556,13 +564,21 @@ body {
                 font-weight: 300;
             }
 
-            &.forbes {
+            &.agent {
+                position: relative;
+                display: flex;
+                flex-direction: column;
                 a {
                     font-weight: 300;
                 }
                 @media only screen and (min-width: $MOBILE) { 
                     text-align: right;
                 }
+                @media only screen and ( max-width: $MOBILE ) {
+                    ul li {
+                        text-align: left !important;
+                    }
+                } 
             }
 
             form {
@@ -597,6 +613,10 @@ body {
                     }
                 }
 
+                textarea {
+                    border-bottom: 2px solid #fff;
+                }
+
                 button {
                     text-align: left;
                     text-transform: uppercase;
@@ -629,31 +649,34 @@ body {
                     font-size: 1.8em;
                 }
             }
+
+            #agent-image {
+
+                width: 100%;
+                min-height: 100pt;
+                height: 100%;
+                position: relative;
+                margin: 30pt 0;
+
+            }
     
-            div#forbes {
+            div#agent-contact {
                 
-                background: #fff;
+                // background: #fff;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                padding: 10pt 20pt;
-                margin-top: 20pt;
+                margin-top: 10pt;
                 position: relative;
     
                 @media only screen and (max-width: 500px) {
                     flex-wrap: wrap;
                 }
     
-                .image {
-                    width: 100%;
-                    min-height: 100pt;
-                    height: 100%;
-                    position: relative;
-                }
+                
     
                 ul {
                     width: 100%;
-                    color: #000;
                     list-style: none;
                     li {
                         color: inherit;

@@ -15,7 +15,7 @@ const ContactForm = ({ values, updateHandler }) => {
                 </fieldset>
 
                 <fieldset>
-                    <label>Agent Info</label>
+                    <label>Agency Info</label>
                     <input 
                         type="text" 
                         name="ag_title"
@@ -37,6 +37,10 @@ const ContactForm = ({ values, updateHandler }) => {
                         value={ values.ag_website }
                         onChange={ ({target}) => updateHandler( target.name, target.value ) }
                     />
+                </fieldset>
+
+                <fieldset>
+                    <label>Agent 1 Details</label>
                     <input 
                         type="email" 
                         name="ag_email"
@@ -45,17 +49,28 @@ const ContactForm = ({ values, updateHandler }) => {
                         onChange={ ({target}) => updateHandler( target.name, target.value ) }
                     />
                     <input 
+                        type="tel" 
+                        name="ag_phone"
+                        placeholder="Phone number"
+                        value={ values.ag_phone }
+                        onChange={ ({target}) => updateHandler( target.name, target.value ) }
+                    />
+                </fieldset>
+
+                <fieldset>
+                    <label>Agent 2 Details</label>
+                    <input 
                         type="email" 
                         name="ag_email2"
-                        placeholder="Email address 2"
+                        placeholder="Email address"
                         value={ values.ag_email2 }
                         onChange={ ({target}) => updateHandler( target.name, target.value ) }
                     />
                     <input 
                         type="tel" 
-                        name="ag_phone"
+                        name="ag_phone2"
                         placeholder="Phone number"
-                        value={ values.ag_phone }
+                        value={ values.ag_phone2 }
                         onChange={ ({target}) => updateHandler( target.name, target.value ) }
                     />
                 </fieldset>

@@ -3,8 +3,8 @@ import axios from 'axios'
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import * as Scroll from 'react-scroll'
-import { AugmentedAIRuntime } from 'aws-sdk'
 let ScrollElement = Scroll.Link
+import { useRouter } from 'next/router'
 
 const emailFormat = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
@@ -78,6 +78,8 @@ const Contact = ({ content, events = [], agent }) => {
             setMessageTo('')
         }
     }, [sent])
+
+    const router = useRouter()
     
     return (
         <section className="contact">
@@ -101,6 +103,7 @@ const Contact = ({ content, events = [], agent }) => {
                         />
                         <textarea 
                             placeholder="Write Johann a message"
+                            rows={5}
                             value={message}
                             onChange={ e => setMessageTo(e.target.value) }
                         />
@@ -115,23 +118,36 @@ const Contact = ({ content, events = [], agent }) => {
                     </form>
                     <SocialMedia align="left" />
                 </div>
-                <div className="subsection forbes">
+                <div className="subsection agent">
                     <h2>{ agent.title }</h2>
                     <p>{ agent.subtitle }</p>
-                    <div id="forbes">
-                        <div className="image">
-                            <Image 
-                                src={`${ process.env.AWS_BUCKET }uploads/${ agent.img }`}
-                                layout='fill'
-                                objectFit='contain'
-                                objectPosition='center'
-                                priority={true}
-                                alt="Agent's logo"
-                            />
-                        </div>
+                    {
+                        !agent.img ? ''
+                            : <div 
+                                id="agent-image"
+                                onClick={ () => {
+                                    return agent.website ? router.push(agent.website) : null
+                                }}    
+                                style={{ cursor: agent.website ? 'pointer' : 'auto' }}
+                            >
+                                <Image 
+                                    src={ 
+                                        process.env.NODE_ENV === "production" 
+                                            ? `${ process.env.AWS_BUCKET }uploads/${ agent.img }` 
+                                            : agent.img
+                                    }
+                                    layout='fill'
+                                    objectFit='contain'
+                                    objectPosition='center'
+                                    priority={true}
+                                    alt="Agent's logo"
+                                />
+                            </div>
+                    }
+                    <div id="agent-contact">
                         <ul>
                             {
-                                !agent.website ? ''
+                                !agent.website || (agent.img && agent.website) ? ''
                                 : <li>
                                     <a 
                                         href={ agent.website } 
@@ -153,6 +169,14 @@ const Contact = ({ content, events = [], agent }) => {
                                 </li>
                             }
                             {
+                                !agent.phone ? ''
+                                : <li>
+                                    <a href={`tel:${encodeURI(agent.phone)}`}>
+                                        { agent.phone }
+                                    </a>
+                                </li>
+                            }
+                            {
                                 !agent.email2 ? ''
                                 :<li>
                                     <a 
@@ -163,10 +187,10 @@ const Contact = ({ content, events = [], agent }) => {
                                 </li>
                             }
                             {
-                                !agent.phone ? ''
+                                !agent.phone2 ? ''
                                 : <li>
-                                    <a href={`tel:${encodeURI(agent.phone)}`}>
-                                        { agent.phone }
+                                    <a href={`tel:${encodeURI(agent.phone2)}`}>
+                                        { agent.phone2 }
                                     </a>
                                 </li>
                             }
