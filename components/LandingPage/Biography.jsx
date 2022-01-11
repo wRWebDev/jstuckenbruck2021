@@ -38,7 +38,7 @@ const Biography = ({ content, isChrome }) => {
                             <div 
                                 className="skiptocontact"
                             >
-                                Contact Johann
+                                Follow Johann
                             </div>
                         </ScrollElement>
                         

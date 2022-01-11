@@ -46,13 +46,23 @@ exports.onDateDelete = functions
     });
 
 exports.refreshEventsEveryDay = functions
+    .region('europe-west2')
     .pubsub
     .schedule("once a day")
     .onRun( () => {
-        return aggregateEvents( false );
+        return aggregateEvents();
     })
 
-const aggregateEvents = async checkDate => {
+exports.onEventUpdate = functions
+    .region('europe-west2')
+    .firestore
+    .document("schedule/{eventId}")
+    .onUpdate( ( snapshot, ctx ) => {
+        let id = ctx.params.eventId;
+        return aggregateEvents( null, id );
+    })
+
+const aggregateEvents = async ( checkDate = null, checkEvent = null ) => {
         
     let today = new Date();
 
@@ -75,16 +85,27 @@ const aggregateEvents = async checkDate => {
                 return null;
             }
 
+            let aggregationNotNeeded = false;
+
             if( checkDate ) {
                 if( checkDate.toDate() > dates[dates.length - 1].datetime.toDate() ) {
-                    console.log( "Events do not need re-aggregating." );
-                    return null;
+                   aggregationNotNeeded = true;
+                }
+            } else if( checkEvent ) {
+                let matchingDates = dates.filter( d => d.event === checkEvent );
+                console.log(matchingDates);
+                if( !matchingDates.length ) {
+                    aggregationNotNeeded = true;
                 }
             } else {
                 if( new Date() < dates[0].datetime.toDate() ) {
-                    console.log( "Events do not need re-aggregating." );
-                    return null;
+                    aggregationNotNeeded = true
                 }
+            }
+
+            if( aggregationNotNeeded ) {
+                console.log( "Events do not need re-aggregating." );
+                return null;
             }
 
             return eventsRef = admin.firestore()
