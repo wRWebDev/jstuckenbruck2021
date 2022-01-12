@@ -42,6 +42,13 @@ const ContactForm = ({ values, updateHandler }) => {
                 <fieldset>
                     <label>Agent 1 Details</label>
                     <input 
+                        type="text" 
+                        name="ag_name"
+                        placeholder="Full name"
+                        value={ values.ag_name }
+                        onChange={ ({target}) => updateHandler( target.name, target.value ) }
+                    />
+                    <input 
                         type="email" 
                         name="ag_email"
                         placeholder="Email address"
@@ -59,6 +66,13 @@ const ContactForm = ({ values, updateHandler }) => {
 
                 <fieldset>
                     <label>Agent 2 Details</label>
+                    <input 
+                        type="text" 
+                        name="ag_name2"
+                        placeholder="Full name"
+                        value={ values.ag_name2 }
+                        onChange={ ({target}) => updateHandler( target.name, target.value ) }
+                    />
                     <input 
                         type="email" 
                         name="ag_email2"

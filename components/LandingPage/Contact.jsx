@@ -159,6 +159,10 @@ const Contact = ({ content, events = [], agent }) => {
                                 </li>
                             }
                             {
+                                !agent.name ? ''
+                                :   <li><strong>{ agent.name }</strong></li>
+                            }
+                            {
                                 !agent.email ? ''
                                 :<li>
                                     <a 
@@ -175,6 +179,10 @@ const Contact = ({ content, events = [], agent }) => {
                                         { agent.phone }
                                     </a>
                                 </li>
+                            }
+                            {               
+                                !agent.name2 ? ''
+                                :   <li><strong>{ agent.name2 }</strong></li>
                             }
                             {
                                 !agent.email2 ? ''

@@ -21,6 +21,8 @@ const Edit = () => {
     const [ ag_email2, setAgEmail2To ] = useState( '' )
     const [ ag_phone, setAgPhoneTo ] = useState( '' )
     const [ ag_phone2, setAgPhone2To ] = useState( '' )
+    const [ ag_name, setAgNameTo ] = useState( '' )
+    const [ ag_name2, setAgName2To ] = useState( '' )
 
     const updateHandler = ( name, val ) => {
         
@@ -49,6 +51,12 @@ const Edit = () => {
             case 'ag_phone2':
                 setAgPhone2To( val )
                 break
+            case 'ag_name':
+                setAgNameTo( val )
+                break
+            case 'ag_name2':
+                setAgName2To( val )
+                break
             default:
                 break
         }
@@ -64,6 +72,8 @@ const Edit = () => {
             setAgEmail2To( data.agent.email2 )
             setAgPhoneTo( data.agent.phone )
             setAgPhone2To( data.agent.phone2 )
+            setAgNameTo( data.agent.name )
+            setAgName2To( data.agent.name2 )
             setInitialLoadTo( false )
         }
     }, [ data, initialLoad ])
@@ -78,6 +88,8 @@ const Edit = () => {
             "agent.email2": ag_email2,
             "agent.phone": ag_phone,
             "agent.phone2": ag_phone2,
+            "agent.name": ag_name,
+            "agent.name2": ag_name2
         })
     }
 
@@ -107,7 +119,7 @@ const Edit = () => {
                         <h1 style={{marginTop: '40pt'}}>Edit</h1>
                         <h2>Contact</h2>
                         <ContactForm
-                            values={{ pg_title, ag_title, ag_subtitle, ag_website, ag_email, ag_email2, ag_phone, ag_phone2 }}
+                            values={{ pg_title, ag_title, ag_subtitle, ag_website, ag_email, ag_email2, ag_phone, ag_phone2, ag_name, ag_name2 }}
                             updateHandler={updateHandler}
                         /> 
                         <UploadImage
