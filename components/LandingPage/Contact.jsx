@@ -160,7 +160,7 @@ const Contact = ({ content, events = [], agent }) => {
                             }
                             {
                                 !agent.name ? ''
-                                :   <li><strong>{ agent.name }</strong></li>
+                                :   <li><strong style={{fontWeight: 500}}>{ agent.name }</strong></li>
                             }
                             {
                                 !agent.email ? ''
@@ -182,7 +182,7 @@ const Contact = ({ content, events = [], agent }) => {
                             }
                             {               
                                 !agent.name2 ? ''
-                                :   <li><strong>{ agent.name2 }</strong></li>
+                                :   <li style={{ marginTop: '10pt' }}><strong  style={{fontWeight: 500}}>{ agent.name2 }</strong></li>
                             }
                             {
                                 !agent.email2 ? ''
