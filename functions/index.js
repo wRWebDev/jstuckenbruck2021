@@ -46,11 +46,10 @@ exports.onDateDelete = functions
     });
 
 exports.refreshEventsEveryDay = functions
-    .region('europe-west2')
     .pubsub
     .schedule("once a day")
     .onRun( () => {
-        return aggregateEvents();
+        return aggregateEvents( false );
     })
 
 exports.onEventUpdate = functions

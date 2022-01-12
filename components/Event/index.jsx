@@ -43,7 +43,7 @@ const Event = ({ data }) => {
                         ) 
                     }
 
-                    <p>
+                    <p style={{ marginTop: performers.length ? '1.5em' : 'auto' }}>
                         <strong>
                             { venue }
                         </strong>
